@@ -1,0 +1,24 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly delta.fileStatsIntervalTree.NodeSpec -- -z "Node holding many intervals", None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return 2 results on query interval [6, 19] *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  1 did not equal 2 (NodeSpec.scala:65)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 197 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 1, failed 1, canceled 0, ignored 1, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 1 TEST FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	delta.fileStatsIntervalTree.NodeSpec[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtestOnly[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 3 s, completed May 1, 2022 6:56:35 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

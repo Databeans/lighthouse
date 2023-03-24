@@ -1,0 +1,16 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly delta.metrics.ClusteringMetricsSpec, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- test delta table[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- overlap depth for sorted data[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UDAF !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 34 seconds, 837 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 2, failed 0, canceled 0, ignored 1, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 51 s, completed May 28, 2022 9:30:02 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn the last 51 seconds, 12.577 (24.8%) were spent in GC. [Heap: 0.87GB free of 1.35GB, max 1.35GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m

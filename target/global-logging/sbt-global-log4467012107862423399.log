@@ -1,0 +1,20 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly databeans.metrics.DeltaClusteringMetricsSpec -- -z "databricks stats", None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 4 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/main/scala/databeans/metrics/DatabricksDeltaClusteringMetrics.scala:10:35: object stats is not a member of package org.apache.spark.sql.delta[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.sql.delta.stats._[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/main/scala/databeans/metrics/DeltaClusteringMetrics.scala:5:8: object DeltaLog is not a member of package org.apache.spark.sql.delta[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.spark.sql.delta.{DeltaLog => OssDeltaLog}[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/main/scala/databeans/metrics/DeltaClusteringMetrics.scala:24:20: not found: value OssDeltaLog[0m
+[0m[[0m[31merror[0m] [0m[0m    val deltaLog = OssDeltaLog.forTable(spark, deltaPath)[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/main/scala/databeans/metrics/DeltaClusteringMetrics.scala:38:30: not found: type OssDeltaLog[0m
+[0m[[0m[31merror[0m] [0m[0m  def getStatsType(deltaLog: OssDeltaLog, column: String) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mfour errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 6 s, completed Aug 4, 2022 11:50:52 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

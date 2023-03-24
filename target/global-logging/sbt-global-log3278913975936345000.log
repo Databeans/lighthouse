@@ -1,0 +1,137 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,17][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [7,17][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,20][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should has 1 left and 1 right child[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding sorted intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mBug1 Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals all in one group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding sorted intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the frist and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcompute the overlap metrics[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2.0 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the number of files when all files have the same min max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3.7778 as overlap depth and compute the histogram[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 as overlap depth and compute the histogram[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- BUG: min = max for all intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- example 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- example 3[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- example 4[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- intervals have one uniform interval[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- intervals have two uniform intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- intervals start with uniform interval and have gaps[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdecimal type[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- BUG: decimal type should be supported for statistics[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals all in one group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 5 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- optimized depth algorithm V2 !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDeltaClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- test overlap for a delta table with non overlapping files[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- test overlap for a delta table with all overlapping files[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- get metrics for a column without statistics !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 25 seconds, 9 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 84[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 8, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 84, failed 0, canceled 0, ignored 9, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 28 s, completed Jan 22, 2023 2:59:23 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

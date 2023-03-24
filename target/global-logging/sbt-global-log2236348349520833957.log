@@ -1,0 +1,308 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 6 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:5:31: object should is not a member of package org.scalatest.matchers[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.matchers.should.Matchers[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:6:22: object funspec is not a member of package org.scalatest[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.funspec.AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:8:32: not found: type AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0mclass OverlapDepthSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:8:48: not found: type Matchers[0m
+[0m[[0m[31merror[0m] [0m[0mclass OverlapDepthSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:10:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("compute the overlap depth") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:50:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return file2, file3 and file7 as head of groups") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:51:35: value shouldBe is not a member of Seq[intervalTree.Interval[Int]][0m
+[0m[[0m[31merror[0m] [0m[0m      getHeadOfGroups(intervals1) shouldBe[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:55:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return one group only") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:56:35: value shouldBe is not a member of Seq[intervalTree.Interval[Int]][0m
+[0m[[0m[31merror[0m] [0m[0m      getHeadOfGroups(intervals2) shouldBe[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:60:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return every interval as head of separate group") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:61:35: value shouldBe is not a member of Seq[intervalTree.Interval[Int]][0m
+[0m[[0m[31merror[0m] [0m[0m      getHeadOfGroups(intervals4) shouldBe[0m
+[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:65:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 2.3333332538604736 as overlap depth") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:66:39: value shouldBe is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m      computeOverlapDepth(intervals1) shouldBe 2.3333[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:69:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return the number of files when all files have the same min max") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:70:39: value shouldBe is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m      computeOverlapDepth(intervals2) shouldBe 4.0000[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:73:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 5.666666507720947 as overlap depth") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:74:39: value shouldBe is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m      computeOverlapDepth(intervals3) shouldBe 5.6667[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:77:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 as overlap depth") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/OverlapDepthSpec.scala:78:39: value shouldBe is not a member of Double[0m
+[0m[[0m[31merror[0m] [0m[0m      computeOverlapDepth(intervals4) shouldBe 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:3:31: object should is not a member of package org.scalatest.matchers[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.matchers.should.Matchers[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:4:22: object funspec is not a member of package org.scalatest[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.funspec.AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:10:34: not found: type AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class IntervalSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:10:50: not found: type Matchers[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class IntervalSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:12:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("An interval [1,5]") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:17:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not intersect with [-1,0]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:18:34: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(-1, 0) shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:21:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not intersect with [6,7]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:22:33: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(6, 7) shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:25:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [0,1]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:26:33: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(0, 1) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:29:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [5,6]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:30:33: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(5, 6) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:33:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [2,3]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:34:33: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(2, 3) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:37:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [0,4]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:38:33: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(0, 4) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:41:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [3,10]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:42:34: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(3, 10) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:45:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [0,10]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:46:34: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects(0, 10) shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:52:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("An interval [b,c]") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:57:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not intersect with [d,e]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:58:37: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects("d", "e") shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:61:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should intersect with [b,d]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:62:37: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.intersects("b", "d") shouldBe true[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:66:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("An interval [b,c]") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:71:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should be greater than [a,e]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:73:37: value shouldBe is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.compareTo(interval2) shouldBe 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:76:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should be lower than [f,g]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:78:37: value shouldBe is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.compareTo(interval2) shouldBe -1[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:81:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should be equal to [b,c]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalSpec.scala:83:37: value shouldBe is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      interval.compareTo(interval2) shouldBe 0[0m
+[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:3:31: object should is not a member of package org.scalatest.matchers[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.matchers.should.Matchers[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:4:22: object funspec is not a member of package org.scalatest[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.funspec.AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:13:38: not found: type AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class IntervalTreeSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:13:54: not found: type Matchers[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class IntervalTreeSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:17:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("Tree holding a single interval [1, 5]") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:21:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not be empty") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:22:20: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.isEmpty shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:25:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 result on query interval [4, 8]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:27:46: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.get(Interval(4, 8, "file1")).size shouldEqual 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:28:55: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.getIntervals(Interval(4, 8, "file1")).size shouldEqual 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                                      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:32:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("depth.Node holding many intervals") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:41:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not be empty") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:42:20: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.isEmpty shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:45:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 2 results on query interval [6, 19]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:46:47: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.get(Interval(6, 19, "file5")).size shouldEqual 2[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/IntervalTreeSpec.scala:47:56: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      tree.getIntervals(Interval(6, 19, "file5")).size shouldEqual 2[0m
+[0m[[0m[31merror[0m] [0m[0m                                                       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:3:31: object should is not a member of package org.scalatest.matchers[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.matchers.should.Matchers[0m
+[0m[[0m[31merror[0m] [0m[0m                              ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:4:22: object funspec is not a member of package org.scalatest[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.scalatest.funspec.AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:12:30: not found: type AnyFunSpec[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class NodeSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:12:46: not found: type Matchers[0m
+[0m[[0m[31merror[0m] [0m[0mfinal class NodeSpec extends AnyFunSpec with Matchers {[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:16:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("depth.Node holding a single interval [1, 5]") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:20:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not be empty") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:21:20: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      node.isEmpty shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:24:5: not found: value ignore[0m
+[0m[[0m[31merror[0m] [0m[0m    ignore("should has no left or right children") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:29:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 result on query interval [4, 8]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:30:48: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(4, 8, "file2")).size shouldEqual 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:33:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 result on query interval [2, 3]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:34:48: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(2, 3, "file2")).size shouldEqual 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:37:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 result on query interval [0, 1]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:38:48: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(0, 1, "file2")).size shouldEqual 1[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:41:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 0 result on query interval [-1, 0]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:42:49: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(-1, 0, "file2")).size shouldEqual 0[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:45:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 1 result on query interval [6, 7]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:46:48: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(6, 7, "file2")).size shouldEqual 0[0m
+[0m[[0m[31merror[0m] [0m[0m                                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:50:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("depth.Node holding many intervals") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:59:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not be empty") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:60:20: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      node.isEmpty shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:63:5: not found: value ignore[0m
+[0m[[0m[31merror[0m] [0m[0m    ignore("should has 1 left and 1 right child") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:68:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 2 results on query interval [6, 19]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:69:49: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(6, 19, "file4")).size shouldEqual 2[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:73:3: not found: value describe[0m
+[0m[[0m[31merror[0m] [0m[0m  describe("depth.Node holding same interval multiple times") {[0m
+[0m[[0m[31merror[0m] [0m[0m  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:82:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should not be empty") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:83:20: value shouldBe is not a member of Boolean[0m
+[0m[[0m[31merror[0m] [0m[0m      node.isEmpty shouldBe false[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:86:5: not found: value ignore[0m
+[0m[[0m[31merror[0m] [0m[0m    ignore("should has 1 left and 1 right child") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:91:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 3 results on query interval [6, 19]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:92:49: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(6, 19, "file4")).size shouldEqual 3[0m
+[0m[[0m[31merror[0m] [0m[0m                                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:95:5: not found: value it[0m
+[0m[[0m[31merror[0m] [0m[0m    it("should return 3 results on query interval [300, 400]") {[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/intervalTree/NodeSpec.scala:96:52: value shouldEqual is not a member of Int[0m
+[0m[[0m[31merror[0m] [0m[0m      node.query(Interval(300, 400, "file4")).size shouldEqual 3[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m114 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Apr 27, 2022 11:41:38 AM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

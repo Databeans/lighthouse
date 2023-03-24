@@ -1,0 +1,14 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/jass/metrics/DeltaClusteringMetricsSpec.scala:37:22: value _1 is not a member of jass.metrics.ClusteringMetrics[0m
+[0m[[0m[31merror[0m] [0m[0m      assert(metrics._1 == 1.0)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/jass/metrics/DeltaClusteringMetricsSpec.scala:57:22: value _1 is not a member of jass.metrics.ClusteringMetrics[0m
+[0m[[0m[31merror[0m] [0m[0m      assert(metrics._1 == 5)[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Aug 23, 2022 5:19:35 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

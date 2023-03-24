@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(jass.metrics.DeltaClusteringMetricsSpec, org.scalatest.tools.Framework$$anon$1@6e47d985, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDeltaClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- get metrics for a column without statistics *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.AssertionError: assertion failed: no statistics found for column value[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at scala.Predef$.assert(Predef.scala:223)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at jass.metrics.DeltaClusteringMetrics$.prepareIntervals(DeltaClusteringMetrics.scala:34)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at jass.metrics.DeltaClusteringMetrics$.compute(DeltaClusteringMetrics.scala:18)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at jass.metrics.DeltaClusteringMetricsSpec.$anonfun$new$6(DeltaClusteringMetricsSpec.scala:90)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at jass.metrics.DeltaClusteringMetricsSpec.$anonfun$new$6$adapted(DeltaClusteringMetricsSpec.scala:62)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.SQLTestUtils.$anonfun$withTempDir$1(SQLTestUtils.scala:78)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.SQLTestUtils.$anonfun$withTempDir$1$adapted(SQLTestUtils.scala:77)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.SparkFunSuite.withTempDir(SparkFunSuite.scala:208)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at jass.metrics.DeltaClusteringMetricsSpec.org$apache$spark$sql$test$SQLTestUtils$$super$withTempDir(DeltaClusteringMetricsSpec.scala:11)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.SQLTestUtils.withTempDir(SQLTestUtils.scala:77)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 25 seconds, 482 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 0, failed 1, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 1 TEST FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	jass.metrics.DeltaClusteringMetricsSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtestOnly[0m) sbt.TestsFailedException: Tests unsuccessful[0m

@@ -1,0 +1,14 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/ClusteringMetricsSpec.scala:8:76: Symbol 'type org.scalatest.funsuite.AnyFunSuite' is missing from the classpath.[0m
+[0m[[0m[31merror[0m] [0m[0mThis symbol is required by 'class org.apache.spark.SparkFunSuite'.[0m
+[0m[[0m[31merror[0m] [0m[0mMake sure that type AnyFunSuite is in your classpath and check for conflicting dependencies with `-Ylog-classpath`.[0m
+[0m[[0m[31merror[0m] [0m[0mA full rebuild may help if 'SparkFunSuite.class' was compiled against an incompatible version of org.scalatest.funsuite.[0m
+[0m[[0m[31merror[0m] [0m[0mclass ClusteringMetricsSpec extends QueryTest with SharedSparkSession with DeltaExtendedSparkSession {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Apr 26, 2022 11:47:57 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

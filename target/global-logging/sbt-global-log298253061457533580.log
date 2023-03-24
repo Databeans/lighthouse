@@ -1,0 +1,194 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should has 1 left and 1 right child[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding sorted intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mBug1 Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals all in one group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the first and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,17][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [7,17][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,20][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOverlapDepthSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcompute the overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return file2, file3 and file7 as head of groups[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return one group only[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return every interval as head of separate group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2.3333332538604736 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the number of files when all files have the same min max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 5.666666507720947 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcompute the overlap metrics[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return file2, file3 and file7 as head of groups[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return one only group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return every interval as head of separate group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2.3333 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the number of files when all files have the same min max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 5.6667 as overlap depth and compute the histogram[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 as overlap depth and compute the histogram[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals all in one group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 5 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding sorted intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the frist and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mDeltaClusteringMetricsSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31mdelta.metrics.DeltaClusteringMetricsSpec *** ABORTED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.NoSuchMethodError: org.apache.spark.sql.internal.SessionStateBuilder.<init>(Lorg/apache/spark/sql/SparkSession;Lscala/Option;)V[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.TestSQLSessionStateBuilder.<init>(TestSQLContext.scala:70)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.TestSparkSession.sessionState$lzycompute(TestSQLContext.scala:42)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.TestSparkSession.sessionState(TestSQLContext.scala:41)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.SparkSession.conf$lzycompute(SparkSession.scala:222)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.SparkSession.conf(SparkSession.scala:222)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.SparkSession.<init>(SparkSession.scala:228)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.SparkSession.<init>(SparkSession.scala:114)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.TestSparkSession.<init>(TestSQLContext.scala:27)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.test.TestSparkSession.<init>(TestSQLContext.scala:30)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at org.apache.spark.sql.delta.test.DeltaTestSparkSession.<init>(DeltaExtendedSparkSession.scala:10)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
+[0m[[0m[31merror[0m] [0m[0mjava.lang.NoSuchMethodError: org.apache.spark.sql.internal.SessionStateBuilder.<init>(Lorg/apache/spark/sql/SparkSession;Lscala/Option;)V[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.TestSQLSessionStateBuilder.<init>(TestSQLContext.scala:70)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.TestSparkSession.sessionState$lzycompute(TestSQLContext.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.TestSparkSession.sessionState(TestSQLContext.scala:41)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.conf$lzycompute(SparkSession.scala:222)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.conf(SparkSession.scala:222)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.<init>(SparkSession.scala:228)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.SparkSession.<init>(SparkSession.scala:114)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.TestSparkSession.<init>(TestSQLContext.scala:27)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.TestSparkSession.<init>(TestSQLContext.scala:30)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.delta.test.DeltaTestSparkSession.<init>(DeltaExtendedSparkSession.scala:10)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.delta.test.DeltaExtendedSparkSession.createSparkSession(DeltaExtendedSparkSession.scala:22)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.delta.test.DeltaExtendedSparkSession.createSparkSession$(DeltaExtendedSparkSession.scala:20)[0m
+[0m[[0m[31merror[0m] [0m[0m	at delta.metrics.DeltaClusteringMetricsSpec.createSparkSession(DeltaClusteringMetricsSpec.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSessionBase.initializeSession(SharedSparkSession.scala:116)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSessionBase.initializeSession$(SharedSparkSession.scala:114)[0m
+[0m[[0m[31merror[0m] [0m[0m	at delta.metrics.DeltaClusteringMetricsSpec.initializeSession(DeltaClusteringMetricsSpec.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSessionBase.beforeAll(SharedSparkSession.scala:124)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSessionBase.beforeAll$(SharedSparkSession.scala:123)[0m
+[0m[[0m[31merror[0m] [0m[0m	at delta.metrics.DeltaClusteringMetricsSpec.org$apache$spark$sql$test$SharedSparkSession$$super$beforeAll(DeltaClusteringMetricsSpec.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSession.beforeAll(SharedSparkSession.scala:46)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.sql.test.SharedSparkSession.beforeAll$(SharedSparkSession.scala:44)[0m
+[0m[[0m[31merror[0m] [0m[0m	at delta.metrics.DeltaClusteringMetricsSpec.beforeAll(DeltaClusteringMetricsSpec.scala:12)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalatest.BeforeAndAfterAll.liftedTree1$1(BeforeAndAfterAll.scala:212)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalatest.BeforeAndAfterAll.run(BeforeAndAfterAll.scala:210)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalatest.BeforeAndAfterAll.run$(BeforeAndAfterAll.scala:208)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.spark.SparkFunSuite.run(SparkFunSuite.scala:62)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:318)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:513)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestRunner.runTest$1(TestFramework.scala:139)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestRunner.run(TestFramework.scala:154)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestFramework$$anon$3$$anonfun$$lessinit$greater$1.$anonfun$apply$1(TestFramework.scala:317)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestFramework$.sbt$TestFramework$$withContextLoader(TestFramework.scala:277)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestFramework$$anon$3$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:317)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestFramework$$anon$3$$anonfun$$lessinit$greater$1.apply(TestFramework.scala:317)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.TestFunction.apply(TestFramework.scala:329)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Tests$.$anonfun$toTask$1(Tests.scala:422)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$3.$anonfun$apply$2(Transform.scala:46)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$4.work(Transform.scala:68)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$2(Execute.scala:282)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.work(Execute.scala:291)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$1(Execute.scala:282)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.CompletionService$$anon$2.call(CompletionService.scala:64)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.FutureTask.run(FutureTask.java:266)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Thread.java:748)[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mexecuteTests[0m) java.lang.NoSuchMethodError: org.apache.spark.sql.internal.SessionStateBuilder.<init>(Lorg/apache/spark/sql/SparkSession;Lscala/Option;)V[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 5 s, completed Aug 3, 2022 1:19:11 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 22 products, 11 sources, 4 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/src/main/scala/jass/fileStatsIntervalTree/IntervalBoundary.scala, ${BASE}/src/main/scala/jass/genericIntervalTree/IntervalTree.scala, ${BASE}/src/main/scala/jass/genericIntervalTree/Node.scala, ${BASE}/src/main/scala/jass/fileStatsIntervalTree/Node.scala, ${BASE}/src/main/scala/jass/metrics/ClusteringMetrics.scala, ${BASE}/src/main/scala/jass/fileStatsIntervalTree/Interval.scala, ${BASE}/src/main/scala/jass/metrics/DeltaClusteringMetrics.scala, ${BASE}/src/main/scala/jass/fileStatsIntervalTree/IntervalTree.scala, ${BASE}/src/main/scala/jass/genericIntervalTree/Interval.scala, ${BASE}/src/main/scala/jass/metrics/DatabricksDeltaClusteringMetrics.scala, ${BASE}/src/main/scala/jass/metrics/Distribution.scala)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m

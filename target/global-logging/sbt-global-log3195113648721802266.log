@@ -1,0 +1,23 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly delta.fileStatsIntervalTree.ClusteringMetricsSpec, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/fileStatsIntervalTree/OverlapDepthSpec.scala:149:7: not found: value computeOverlapDepth[0m
+[0m[[0m[31merror[0m] [0m[0m      computeOverlapDepth(intervals) shouldBe 5[0m
+[0m[[0m[31merror[0m] [0m[0m      ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/ClusteringMetricsSpec.scala:120:33: not enough arguments for method computeOverlapDepth: (spark: org.apache.spark.sql.SparkSession, deltaPath: String, column: String)(Double, scala.collection.immutable.ListMap[Double,Int]).[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameters deltaPath, column.[0m
+[0m[[0m[31merror[0m] [0m[0m      assert(computeOverlapDepth(intervals) == 5.0)[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/abidijasser/databricks/ClusteringInfo/src/test/scala/delta/metrics/ClusteringMetricsSpec.scala:157:33: not enough arguments for method computeOverlapDepth: (spark: org.apache.spark.sql.SparkSession, deltaPath: String, column: String)(Double, scala.collection.immutable.ListMap[Double,Int]).[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameters deltaPath, column.[0m
+[0m[[0m[31merror[0m] [0m[0m      assert(computeOverlapDepth(intervals) == 1.0)[0m
+[0m[[0m[31merror[0m] [0m[0m                                ^[0m
+[0m[[0m[31merror[0m] [0m[0mthree errors found[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[33mwarn[0m] [0m[0mIn the last 9 seconds, 5.14 (63.7%) were spent in GC. [Heap: 0.66GB free of 1.16GB, max 1.33GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 8 s, completed Aug 2, 2022 9:53:27 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

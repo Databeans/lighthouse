@@ -1,0 +1,37 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31mNodeSpec *** ABORTED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  java.util.NoSuchElementException was thrown inside describe("Node holding a single interval [1, 5]"), construction cannot continue: "None.get" (NodeSpec.scala:50)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0mScalaTest[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 193 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 13[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 13, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 1 SUITE ABORTED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mError: Total 14, Failed 0, Errors 1, Passed 13[0m
+[0m[[0m[31merror[0m] [0m[0mError during tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	NodeSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Apr 25, 2022 8:47:34 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

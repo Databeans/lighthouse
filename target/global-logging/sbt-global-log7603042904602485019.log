@@ -1,0 +1,120 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/abidijasser/databricks/ClusteringInfo/target/scala-2.12/test-classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding sorted intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on the frist and last files and 3 else[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [1,5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [-1,0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [6,7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [5,6][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [2,3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,4][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [3,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [0,10][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not intersect with [d,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should intersect with [b,d][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAn interval [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be greater than [a,e][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be lower than [f,g][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should be equal to [b,c][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOverlapDepthSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcompute the overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return file2, file3 and file7 as head of groups[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return one group only[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return every interval as head of separate group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 2.3333332538604736 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the number of files when all files have the same min max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 5.666666507720947 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNodeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has no left or right children !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [2, 3][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [0, 1][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 result on query interval [-1, 0][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [6, 7][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mNode holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return 2 results on query interval [6, 19] *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  1 did not equal 2 (NodeSpec.scala:65)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding same interval multiple times[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- should has 1 left and 1 right child !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [6, 19][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 3 results on query interval [300, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 0 results on query interval [360, 400][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mIntervalTreeSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mTree holding a single interval [1, 5][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 result on query interval [4, 8][0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mdepth.Node holding many intervals[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should not be empty[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return 2 results on query interval [6, 19] *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  0 did not equal 2 (IntervalTreeSpec.scala:47)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mOverlapDepthSpec:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mcompute the overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return file2, file3 and file7 as head of groups[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return one group only[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return every interval as head of separate group[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return 2.3333332538604736 as overlap depth *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  2.0 was not equal to 2.3333 (OverlapDepthSpec.scala:74)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return the number of files when all files have the same min max[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- should return 5.666666507720947 as overlap depth *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  5.0 was not equal to 5.6667 (OverlapDepthSpec.scala:82)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should return 1 as overlap depth[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 238 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 66[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 8, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 62, failed 4, canceled 0, ignored 7, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m*** 4 TESTS FAILED ***[0m[0m
+[0m[[0m[31merror[0m] [0m[0mFailed tests:[0m
+[0m[[0m[31merror[0m] [0m[0m	delta.fileStatsIntervalTree.NodeSpec[0m
+[0m[[0m[31merror[0m] [0m[0m	delta.fileStatsIntervalTree.OverlapDepthSpec[0m
+[0m[[0m[31merror[0m] [0m[0m	delta.fileStatsIntervalTree.IntervalTreeSpec[0m
+[0m[[0m[31merror[0m] [0m[0m(Test / [31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed May 1, 2022 6:34:47 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
