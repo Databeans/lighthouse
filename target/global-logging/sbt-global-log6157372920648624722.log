@@ -1,6 +1,0 @@
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly jass.metrics.ClusteringMetricsSpec -- -z "BUG: use the overlapping branches as head of group", None, None)[0m
-[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
-[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
-[0m[[0m[33mwarn[0m] [0m[0mCanceling execution...[0m
-[0m[[0m[33mwarn[0m] [0m[0mIn the last 9 seconds, 6.956 (79.3%) were spent in GC. [Heap: 1.23GB free of 1.35GB, max 1.35GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIn the last 328157 seconds, 12.264 (0.0%) were spent in GC. [Heap: 1.21GB free of 1.34GB, max 1.34GB] Consider increasing the JVM heap using `-Xmx` or try a different collector, e.g. `-XX:+UseG1GC`, for better performance.[0m
