@@ -2,7 +2,7 @@ package databeans.metrics
 
 import databeans.fileStatsIntervalTree.Interval
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.delta.{DeltaLog => OssDeltaLog}
+import org.apache.spark.sql.delta.DeltaLog
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{StringType, StructType}
 
@@ -23,7 +23,7 @@ object DeltaClusteringMetrics {
   // TODO add support for time travel
   def prepareIntervals(spark: SparkSession, deltaPath: String, column: String): Seq[Interval] = {
 
-    val deltaLog = OssDeltaLog.forTable(spark, deltaPath)
+    val deltaLog = DeltaLog.forTable(spark, deltaPath)
 
     deltaLog.snapshot.metadata.id
     //TODO: this is too severe. maybe just throw a warning instead.
@@ -50,7 +50,7 @@ object DeltaClusteringMetrics {
       }
   }
 
-  def getStatsType(deltaLog: OssDeltaLog, column: String) = {
+  def getStatsType(deltaLog: DeltaLog, column: String) = {
     val extractedColumn = deltaLog
       .snapshot
       .schema
@@ -60,7 +60,7 @@ object DeltaClusteringMetrics {
     extractedColumn.head.dataType
   }
 
-  def isPartitioningColumn(deltaLog: OssDeltaLog, column: String): Boolean = {
+  def isPartitioningColumn(deltaLog: DeltaLog, column: String): Boolean = {
     deltaLog.snapshot.metadata.partitionColumns.contains(column)
   }
 
@@ -73,7 +73,7 @@ object DeltaClusteringMetrics {
       .contains(column)
   }
 
-  def getSizePerFile(deltaLog: OssDeltaLog) = {
+  def getSizePerFile(deltaLog: DeltaLog):List[Double] = {
     deltaLog.snapshot.allFiles.collect()
       .map(addFile => addFile.size.toDouble).toList
   }
