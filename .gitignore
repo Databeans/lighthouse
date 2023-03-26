@@ -1,6 +1,5 @@
 build/
 dist/
-chispa.egg-info/
 .cache/
 tmp/
 .idea/
