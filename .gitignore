@@ -4,4 +4,6 @@ dist/
 tmp/
 .idea/
 .DS_Store
-.bsp
+.bsp/
+spark-warehouse/
+project/target/
