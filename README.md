@@ -13,22 +13,27 @@ DeltaClusteringMetrics detects several metrics including:
 ### - total_file_count:  
 Total number of files composing the Delta table.  
 ### - total_uniform_file_count:  
-Files in which min and max values of a given ordering column are equal
+Files in which min and max values of a given ordering column are equal  
+
 ![](C:\ScalaProjects\clustering-info\images\total_uniform_file_count.png)
 ### - average_overlap:  
 Average number of overlapping files for each file in the delta table.  
 Best case scenario: average_overlaps = 0 ⇒ table perfectly clustered with no overlapping files.   
 Worst case scenario: average_overlaps = (total_file_count — 1) ⇒ table with all files overlapping.  
 ⇒ The higher the average_overlap, the worse the clustering.   
-So to better illustrate, this is a simple example of a table consisting of 4 files:
-![](C:\ScalaProjects\clustering-info\images\average_overlap.jpg)
+So to better illustrate, this is a simple example of a table consisting of 4 files:  
+
+![](C:\ScalaProjects\clustering-info\images\average_overlap.jpg)  
+
 ### - average_overlap_depth:  
 The average number of files that will be read when an overlap occurs.   
 Empty table ⇒ average_overlap_depth = 0   
 Table with no overlapping files ⇒ average_overlap_depth = 1   
 ⇒ The higher the average_overlap_depth, the worse the clustering.   
-Throughout this figure, we will study the evolution of the average_overlap_depth of a table containing 4 files:
-![](C:\ScalaProjects\clustering-info\images\average_overlap_depth.jpg)
+Throughout this figure, we will study the evolution of the average_overlap_depth of a table containing 4 files:  
+
+![](C:\ScalaProjects\clustering-info\images\average_overlap_depth.jpg)  
+
 Initially, there are no overlapping files, so the table is perfectly clustered.   
 ⇒ Best case scenario: average_overlap_depth = 1.   
 Going on, as the clustering is getting worse, the average_overlap_depth is getting higher.   
@@ -64,8 +69,7 @@ ___
 - computeForColumns(“col1”,”col2”,…): extract clustering information for multiple columns.  
 - computeForAllColumns(): extract clustering information for the entire table.  
 ### Output
-___ 
-The tool will then extract the clustering metrics and generate a dataframe containing the next columns:  
+___
 - column  
 - total_file_count  
 - total_uniform_file_count  
@@ -73,6 +77,7 @@ The tool will then extract the clustering metrics and generate a dataframe conta
 - average_overlap_depth  
 - file_depth_histogram  
 ### Example 
+___ 
 Let's look at this example
 ```
 spark.range(1, 5, 1).toDF()
@@ -82,7 +87,6 @@ spark.range(1, 5, 1).toDF()
 .write.format("delta")
 .mode("overwrite").saveAsTable("DeltaTable")
 ```
-
 | id  | keys | values |
 |-----|------|--------|
 | 1   | 1    | 3      |
@@ -91,25 +95,29 @@ spark.range(1, 5, 1).toDF()
 | 4   | 1    | 12     |
 
 #### Extract clustering information for one column:    
+___   
+
 ```
 val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
   .computeForColumn("keys")
 ```
-The result will be this dataframe  
+The tool will then extract the clustering metrics and generate a dataframe containing the next columns:
 
 | column | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram                                                                                                                                                    |
 |--------|------------------|--------------------------|-----------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Keys   | 4                | 4                        | 3               | 4                     | {"6.0": 0, "12.0": 0, "15.0": 0, "3.0": 0, "8.0": 0, "10.0": 0, "2.0": 0, "16.0": 0, "11.0": 0, "4.0": 4, "13.0": 0, "1.0": 0, "9.0": 0, "14.0": 0, "7.0": 0, "5.0": 0} |  
 
 ---  
-#### Extract clustering information for all columns:  
+#### Extract clustering information for all columns: 
+___ 
 ```
 val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
-  ..computeForAllColumns()
-```
-The result will be this dataframe  
+  .computeForAllColumns()
+```  
+
+The tool will then extract the clustering metrics and generate a dataframe containing the next columns:
 
 | column | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram                                                                                                                                                    |
 |--------|------------------|--------------------------|-----------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
