@@ -13,22 +13,22 @@ DeltaClusteringMetrics detects several metrics including:
 ### - total_file_count:  
 Total number of files composing the Delta table.  
 ### - total_uniform_file_count:  
-Files in which min and max values of a given ordering column are equal  
-![](https://bitbucket.org/data_beans/clustering-info/src/user-guide/images/total_uniform_file_count.png)
+Files in which min and max values of a given ordering column are equal
+![](C:\ScalaProjects\clustering-info\images\total_uniform_file_count.png)
 ### - average_overlap:  
 Average number of overlapping files for each file in the delta table.  
 Best case scenario: average_overlaps = 0 ⇒ table perfectly clustered with no overlapping files.   
 Worst case scenario: average_overlaps = (total_file_count — 1) ⇒ table with all files overlapping.  
 ⇒ The higher the average_overlap, the worse the clustering.   
-So to better illustrate, this is a simple example of a table consisting of 4 files:  
-![](https://bitbucket.org/data_beans/clustering-info/src/user-guide/images/average_overlap.jpg)  
+So to better illustrate, this is a simple example of a table consisting of 4 files:
+![](C:\ScalaProjects\clustering-info\images\average_overlap.jpg)
 ### - average_overlap_depth:  
 The average number of files that will be read when an overlap occurs.   
 Empty table ⇒ average_overlap_depth = 0   
 Table with no overlapping files ⇒ average_overlap_depth = 1   
 ⇒ The higher the average_overlap_depth, the worse the clustering.   
 Throughout this figure, we will study the evolution of the average_overlap_depth of a table containing 4 files:
-![](https://bitbucket.org/data_beans/clustering-info/src/user-guide/images/average_overlap_depth.jpg)  
+![](C:\ScalaProjects\clustering-info\images\average_overlap_depth.jpg)
 Initially, there are no overlapping files, so the table is perfectly clustered.   
 ⇒ Best case scenario: average_overlap_depth = 1.   
 Going on, as the clustering is getting worse, the average_overlap_depth is getting higher.   
@@ -90,7 +90,7 @@ spark.range(1, 5, 1).toDF()
 | 3   | 1    | 9      |
 | 4   | 1    | 12     |
 
-Extract clustering information for one column:    
+#### Extract clustering information for one column:    
 ```
 val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
@@ -101,8 +101,9 @@ The result will be this dataframe
 | column | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram                                                                                                                                                    |
 |--------|------------------|--------------------------|-----------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Keys   | 4                | 4                        | 3               | 4                     | {"6.0": 0, "12.0": 0, "15.0": 0, "3.0": 0, "8.0": 0, "10.0": 0, "2.0": 0, "16.0": 0, "11.0": 0, "4.0": 4, "13.0": 0, "1.0": 0, "9.0": 0, "14.0": 0, "7.0": 0, "5.0": 0} |  
+
 ---  
-Extract clustering information for one column:  
+#### Extract clustering information for all columns:  
 ```
 val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
