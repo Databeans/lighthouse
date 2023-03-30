@@ -14,8 +14,6 @@ DeltaClusteringMetrics detects several metrics including:
 Total number of files composing the Delta table.  
 ### - total_uniform_file_count:  
 Files in which min and max values of a given ordering column are equal  
-
-![](C:\ScalaProjects\clustering-info\images\total_uniform_file_count.png)
 ### - average_overlap:  
 Average number of overlapping files for each file in the delta table.  
 Best case scenario: average_overlaps = 0 ⇒ table perfectly clustered with no overlapping files.   
@@ -23,7 +21,7 @@ Worst case scenario: average_overlaps = (total_file_count — 1) ⇒ table with 
 ⇒ The higher the average_overlap, the worse the clustering.   
 So to better illustrate, this is a simple example of a table consisting of 4 files:  
 
-![](C:\ScalaProjects\clustering-info\images\average_overlap.jpg)  
+![](https://miro.medium.com/v2/resize:fit:828/0*_Pi7feo5ZxAdvW8k)  
 
 ### - average_overlap_depth:  
 The average number of files that will be read when an overlap occurs.   
@@ -32,7 +30,7 @@ Table with no overlapping files ⇒ average_overlap_depth = 1
 ⇒ The higher the average_overlap_depth, the worse the clustering.   
 Throughout this figure, we will study the evolution of the average_overlap_depth of a table containing 4 files:  
 
-![](C:\ScalaProjects\clustering-info\images\average_overlap_depth.jpg)  
+![](https://miro.medium.com/v2/resize:fit:1400/0*rmoB3fxNL2kSqijR)  
 
 Initially, there are no overlapping files, so the table is perfectly clustered.   
 ⇒ Best case scenario: average_overlap_depth = 1.   
@@ -87,6 +85,7 @@ spark.range(1, 5, 1).toDF()
 .write.format("delta")
 .mode("overwrite").saveAsTable("DeltaTable")
 ```
+
 | id  | keys | values |
 |-----|------|--------|
 | 1   | 1    | 3      |
