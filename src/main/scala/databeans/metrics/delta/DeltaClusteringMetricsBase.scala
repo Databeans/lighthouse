@@ -23,7 +23,6 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
 
   def partitionColumns: Seq[String]
 
-
   def computeForColumn(column: String): DataFrame = {
     import spark.implicits._
 
@@ -32,13 +31,12 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
 
   def computeForColumns(columns: String*): DataFrame = {
     import spark.implicits._
-
     columns.map(col => compute(col)).toDF()
   }
 
   def computeForAllColumns(): DataFrame = {
     import spark.implicits._
-    allColumns.map(col => compute(col)).toDF()
+    allColumns.diff(partitionColumns).map(col => compute(col)).toDF()
   }
 
   private def compute(column: String): ClusteringMetrics = {
@@ -46,17 +44,14 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
     computeMetrics(column, intervals)
   }
 
-  // TODO check for partition column
   // TODO add support for time travel
   private def prepareIntervals(column: String): Seq[Interval] = {
 
-    //TODO: this is too severe. maybe just throw a warning instead.
     assert(!isPartitioningColumn(column),
       s"'$column' is a partitioning column. Clustering metrics cannot be computed for partitioning columns")
 
     val dataType = getStatsType(column)
 
-    //TODO: this is to severe. maybe just throw a warning instead.
     assert(checkIfStatsExists(column), s"no statistics found for column '$column'")
 
     stateWithStats
@@ -66,7 +61,8 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
         col(s"$FILE_RELATIVE_PATH"),
         col(s"$STATS_MIN_PREFIX.$column").cast(StringType).as("min"),
         col(s"$STATS_MAX_PREFIX.$column").cast(StringType).as("max")
-      ).collect()
+      )
+      .collect()
       .map { row =>
         Interval(row.getString(1), row.getString(2), row.getString(0), dataType)
       }
