@@ -1,18 +1,12 @@
 package databeans.metrics
 
-import databeans.fileStatsIntervalTree.{Interval, IntervalBoundary, Node}
-import databeans.fileStatsIntervalTree
-import databeans.metrics.ClusteringMetrics.{computeAverageOverlapDepth, computeDepthHistogram}
-import org.apache.spark.sql.types.{DecimalType, IntegerType, LongType}
+import databeans.fileStatsIntervalTree.{Interval, Node}
+import org.apache.spark.sql.types.{DecimalType, IntegerType}
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
-import scala.collection.immutable.ListMap
-
-
 class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
 
-  //TODO Use the compute unpopulated function from the distribution instead
   def buildHistogram(maxBin: Int, populatedBuckets: Map[Double, Int]): Map[Double, Int] = {
     val missingBins = Distribution.computeUnPopulatedBuckets(maxBin, populatedBuckets)
     missingBins ++ populatedBuckets
@@ -31,7 +25,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("14", "20", "file9", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals1)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals1)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -53,7 +48,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("1", "2", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals2)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals2)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -82,7 +78,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("31", "40", "file12", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals3)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals3)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -110,7 +107,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("7", "8", "file5", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals4)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals4)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -138,7 +136,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("1", "1", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals5)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals5)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -166,7 +165,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("5", "10", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals2)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals2)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -194,7 +194,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("3", "5", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals2)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals2)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -222,7 +223,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("6", "8", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals2)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals2)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -250,7 +252,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("7", "7", "file6", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -279,7 +282,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("7", "7", "file7", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -310,7 +314,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("7", "7", "file7", IntegerType)
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -339,7 +344,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         Interval("-8.00", "-5.00", "file1", DecimalType(5, 2))
       )
 
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
       val averageOverlaps = overlapMetrics.averageOverlaps
@@ -376,7 +382,8 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
     }
 
     it("should return 5 as overlap depth") {
-      val overlapMetrics = ClusteringMetrics.computeMetrics(intervals)
+      val clusteringMetricsBuilder = new ClusteringMetricsBuilder()
+      val overlapMetrics = clusteringMetricsBuilder.computeMetrics("colA", intervals)
       val avgOverlapDepth = overlapMetrics.averageOverlapDepth
       val overlapDepthHistogram = overlapMetrics.fileDepthHistogram
 
@@ -386,153 +393,4 @@ class ClusteringMetricsSpec extends AnyFunSpec with Matchers {
         buildHistogram(16, Map((5.0, 5)))
     }
   }
-
-
-  ignore("optimized depth algorithm V2") {
-
-
-    def computeDepth(intervals2: Seq[Interval]) = {
-      val representativePoints = intervals2
-        .flatMap(i => Seq(IntervalBoundary(i.start, i.statsType), IntervalBoundary(i.end, i.statsType)))
-        .distinct
-        .sorted
-        .map(p => Interval(p.value, p.value, p.value, p.statsType))
-
-
-      /*println("***************")
-      representativePoints.foreach(println)
-      println("****************")*/
-
-      val tree = fileStatsIntervalTree.IntervalTree(intervals2)
-      val depthPerPoint = representativePoints.map(p => (p, tree.getIntervals(p).size))
-
-
-      var depthPerSubInterval: Seq[(Interval, Int)] = Seq()
-      var histogramInput: Seq[(Interval, Int)] = Seq()
-      var i = 0
-      while (i < representativePoints.length) {
-        val upperBoundOverlappingIntervals = tree.getIntervals(representativePoints(i))
-        val upperBoundDepth = upperBoundOverlappingIntervals.size
-        if (i > 0) {
-          val interval = Interval(
-            representativePoints(i - 1).start,
-            representativePoints(i).end,
-            s"]${representativePoints(i - 1).start},${representativePoints(i).end}[",
-            representativePoints(i - 1).statsType
-          )
-          val overlappingIntervals = tree.getIntervals(interval, false)
-          val openIntervalDepth = overlappingIntervals.size
-
-          if (openIntervalDepth != depthPerSubInterval.last._2) {
-            depthPerSubInterval = depthPerSubInterval ++ Seq((interval, openIntervalDepth))
-          }
-
-          if (upperBoundDepth != depthPerSubInterval.last._2) {
-            depthPerSubInterval = depthPerSubInterval ++ Seq((representativePoints(i), upperBoundDepth))
-          }
-          histogramInput = histogramInput ++
-          (upperBoundOverlappingIntervals ++ overlappingIntervals)
-            .distinct
-            .map(i => (i, Seq(depthPerSubInterval.last._2, openIntervalDepth, upperBoundDepth).max))
-
-            i = i + 1
-        }
-        else {
-          depthPerSubInterval = depthPerSubInterval ++ Seq((representativePoints(i), upperBoundDepth))
-          i = i + 1
-        }
-      }
-
-      // depthPerSubInterval.foreach(println)
-
-      println("histogramInput:")
-      histogramInput.foreach(println)
-      println("**************")
-
-      (depthPerSubInterval, histogramInput)
-    }
-
-    val intervals0 = Seq[Interval](
-      Interval("1", "2", "file2", IntegerType),
-      Interval("3", "4", "file3", IntegerType),
-      Interval("0", "5", "file5", IntegerType),
-      Interval("4", "10", "file6", IntegerType),
-      Interval("14", "15", "file8", IntegerType),
-      Interval("14", "20", "file9", IntegerType)
-    )
-    // avgOverlapDepth shouldBe 2.0
-
-    val intervals1 = Seq[Interval](
-      Interval("1", "2", "file2", IntegerType),
-      Interval("1", "2", "file3", IntegerType),
-      Interval("1", "2", "file5", IntegerType),
-      Interval("1", "2", "file6", IntegerType)
-    )
-    // avgOverlapDepth shouldBe 4.0000
-
-    val intervals2 = Seq[Interval](
-      Interval("1", "5", "file2", IntegerType),
-      Interval("0", "7", "file3", IntegerType),
-      Interval("11", "16", "file4", IntegerType),
-      Interval("7", "16", "file5", IntegerType),
-      Interval("5", "9", "file6", IntegerType),
-      Interval("4", "16", "file7", IntegerType),
-      Interval("0", "13", "file8", IntegerType),
-      Interval("9", "12", "file9", IntegerType),
-      Interval("7", "9", "file10", IntegerType),
-      Interval("20", "30", "file11", IntegerType),
-      Interval("31", "40", "file12", IntegerType)
-    )
-    // avgOverlapDepth shouldBe 3.7778
-
-    val intervals3 = Seq[Interval](
-      Interval("1", "2", "file2", IntegerType),
-      Interval("3", "4", "file3", IntegerType),
-      Interval("5", "6", "file4", IntegerType),
-      Interval("7", "8", "file5", IntegerType)
-    )
-    // avgOverlapDepth shouldBe 1.0
-
-    val intervals4 = Seq[Interval](
-      Interval("1", "1", "file2", IntegerType),
-      Interval("1", "1", "file3", IntegerType),
-      Interval("1", "1", "file5", IntegerType),
-      Interval("1", "1", "file6", IntegerType)
-    )
-    // avgOverlapDepth shouldBe 4.0000
-
-    val intervals5 = Seq[Interval](
-      Interval("0", "6", "file2", IntegerType),
-      Interval("1", "3", "file3", IntegerType),
-      Interval("3", "5", "file5", IntegerType),
-      Interval("5", "10", "file6", IntegerType)
-    )
-
-    val intervals6 = Seq[Interval](
-      Interval("0", "2", "file2", IntegerType),
-      Interval("0", "1", "file3", IntegerType),
-      Interval("1", "4", "file5", IntegerType)
-    )
-
-
-    it("run all tests") {
-
-      // good
-      computeAverageOverlapDepth(computeDepth(intervals0)._1) shouldBe 2.2
-      println(computeDepthHistogram(computeDepth(intervals1)._2))
-
-
-      computeAverageOverlapDepth(computeDepth(intervals1)._1) shouldBe 4.0000
-      computeAverageOverlapDepth(computeDepth(intervals2)._1) shouldBe 4.25
-      computeAverageOverlapDepth(computeDepth(intervals3)._1) shouldBe 1.0
-      computeAverageOverlapDepth(computeDepth(intervals4)._1) shouldBe 4.0000
-      computeAverageOverlapDepth(computeDepth(intervals5)._1) shouldBe 2.4
-      computeAverageOverlapDepth(computeDepth(intervals6)._1) shouldBe 2.3333
-
-
-
-    }
-  }
-
-
 }
