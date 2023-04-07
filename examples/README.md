@@ -11,12 +11,12 @@ This example calculates the clustering metrics using DeltaClusteringMetrics of d
 
 ## Instructions  
 To run the example:  
-1. Download or clone the DeltaClusteringMetrics project.
-2. Navigate to the examples directory: ```cd examples```.
-3. Copy the clusteringinfo_2.12-0.1.1.jar file to the lib directory.
-4. Run ```sbt compile``` to compile the example.
-5. Run ```sbt run``` to execute the example.
-6. The clustering metrics for the specified Delta table will be printed to the console.  
+1. Download or clone the DeltaClusteringMetrics project.  
+2. Navigate to the examples directory: ```cd examples```.  
+3. Copy the clusteringinfo_2.12-0.1.1.jar file to the lib directory.  
+4. Run ```sbt compile``` to compile the example.  
+5. Run ```sbt run``` to execute the example.  
+6. The clustering metrics for the specified Delta table will be printed to the console.    
 
 By running this example, you can learn how to use DeltaClusteringMetrics to calculate the clustering metrics for a Delta table and interpret the results.  
 You can also use this example as a starting point for your own DeltaClusteringMetrics projects.
