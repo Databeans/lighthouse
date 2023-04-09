@@ -19,10 +19,10 @@ object Quickstart {
       .withColumn("values", col("id") * 3)
       .write.mode("overwrite")
       .format("delta")
-      .save("E:\\dataset\\DeltaClusteringMetrics")
+      .save("examples/target/DeltaClusteringMetrics")
 
     val clusteringMetric = DeltaClusteringMetrics
-      .forPath("E:\\dataset\\DeltaClusteringMetrics".toString, spark)
+      .forPath("examples/target/DeltaClusteringMetrics".toString, spark)
       .computeForColumn("keys")
     clusteringMetric.show()
   }
