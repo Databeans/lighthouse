@@ -15,7 +15,6 @@ final class IntervalTreeSpec extends AnyFunSpec with Matchers {
     }
 
     it("should return 1 result on query interval [4, 8]") {
-      tree.get(Interval("4", "8", "file1", IntegerType)).size shouldEqual 1
       tree.getIntervals(Interval("4", "8", "file1", IntegerType)).size shouldEqual 1
     }
   }
@@ -34,7 +33,6 @@ final class IntervalTreeSpec extends AnyFunSpec with Matchers {
     }
 
     it("should return 2 results on query interval [6, 19]") {
-      tree.get(Interval("6", "19", "file5", IntegerType)).size shouldEqual 2
       tree.getIntervals(Interval("6", "19", "file5", IntegerType)).size shouldEqual 2
     }
   }

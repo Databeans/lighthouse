@@ -1,6 +1,5 @@
 package fr.databeans.fileStatsIntervalTree
 
-import org.apache.spark.api.java.Optional
 import org.apache.spark.sql.types.IntegerType
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers

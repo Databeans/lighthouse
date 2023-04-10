@@ -6,11 +6,11 @@ import scala.collection.SortedMap
 import scala.collection.immutable.TreeSet
 import scala.collection.mutable.ListBuffer
 
-case class Node private(
-                         center: String,
-                         left: Option[Node],
-                         right: Option[Node],
-                         intervals: SortedMap[Interval, List[Interval]]) {
+case class Node(
+                 center: String,
+                 left: Option[Node],
+                 right: Option[Node],
+                 intervals: SortedMap[Interval, List[Interval]]) {
 
 
   def size: Int = intervals.size
@@ -45,7 +45,7 @@ case class Node private(
 
 object Node {
 
-  private def medianOf(set: TreeSet[_ >: Int with Long with BigDecimal with String]): Option[String] = {
+  def medianOf(set: TreeSet[_ >: Int with Long with BigDecimal with String]): Option[String] = {
     val mid = set.size / 2
 
     set.zipWithIndex.find(_._2 == mid) match {
