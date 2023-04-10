@@ -4,15 +4,11 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 import org.apache.spark.sql.types._
 
-/**
- * Specification test for depth.Interval.
- */
 final class IntervalSpec extends AnyFunSpec with Matchers {
 
   describe("An interval [b,c]") {
 
     val interval = Interval("b", "c", "file1", StringType)
-
 
     it("should not intersect with [d,e]") {
       interval.intersects("d", "e") shouldBe false
@@ -44,8 +40,8 @@ final class IntervalSpec extends AnyFunSpec with Matchers {
   }
 
   describe("An interval [1,5]") {
-    val interval = Interval("1", "5", "file1", IntegerType)
 
+    val interval = Interval("1", "5", "file1", IntegerType)
 
     it("should not intersect with [-1,0]") {
       interval.intersects("-1", "0") shouldBe false
