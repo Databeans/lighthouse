@@ -9,8 +9,8 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends ClusteringMetricsBuilder {
 
   val STATS_COLUMN = "stats"
-  val STATS_MIN_PREFIX = "stats.minValues"
-  val STATS_MAX_PREFIX = "stats.maxValues"
+  val MIN_PREFIX = "minValues"
+  val MAX_PREFIX = "maxValues"
   val FILE_RELATIVE_PATH = "add.path"
 
   def schema: StructType
@@ -44,7 +44,6 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
     computeMetrics(column, intervals)
   }
 
-  // TODO add support for time travel
   private def prepareIntervals(column: String): Seq[Interval] = {
 
     assert(!isPartitioningColumn(column),
@@ -59,8 +58,8 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
       .withColumn(STATS_COLUMN, from_json(col(s"add.$STATS_COLUMN"), statsSchema))
       .select(
         col(s"$FILE_RELATIVE_PATH"),
-        col(s"$STATS_MIN_PREFIX.$column").cast(StringType).as("min"),
-        col(s"$STATS_MAX_PREFIX.$column").cast(StringType).as("max")
+        col(s"${STATS_COLUMN}.${MIN_PREFIX}.$column").cast(StringType).as("min"),
+        col(s"${STATS_COLUMN}.${MAX_PREFIX}.$column").cast(StringType).as("max")
       )
       .collect()
       .map { row =>
@@ -76,9 +75,8 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
     extractedColumn.head.dataType
   }
 
-  // TODO remove hard coded minValues
   private def checkIfStatsExists(column: String): Boolean = {
-    statsSchema.fields.filter(_.name == "minValues")
+    statsSchema.fields.filter(_.name == MIN_PREFIX)
       .map(_.dataType)
       .flatMap {
         case StructType(f) => f
