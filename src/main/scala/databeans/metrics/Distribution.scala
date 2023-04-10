@@ -1,7 +1,5 @@
 package databeans.metrics
 
-import scala.collection.immutable.ListMap
-
 object Distribution {
 
   def roundToPowerOfTwo(element: Int): Double = {
