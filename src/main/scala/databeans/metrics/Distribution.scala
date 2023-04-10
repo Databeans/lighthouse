@@ -38,10 +38,10 @@ object Distribution {
     getBounds(maxBin).map(e => (e, 0)).toMap.filter(x => !populatedBuckets.keys.toList.contains(x._1))
   }
 
-  def histogram(data: List[Double]): ListMap[Double, Int] = {
+  def histogram(data: List[Double]): Map[Double, Int] = {
     val maxBin = data.max
     val populatedBuckets = computePopulatedBuckets(data)
     val unPopulatedBuckets = computeUnPopulatedBuckets(maxBin, populatedBuckets)
-    ListMap((populatedBuckets ++ unPopulatedBuckets).toSeq.sortBy(_._1): _*)
+    Map((populatedBuckets ++ unPopulatedBuckets).toSeq.sortBy(_._1): _*)
   }
 }
