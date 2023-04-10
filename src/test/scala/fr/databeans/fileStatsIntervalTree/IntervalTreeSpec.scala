@@ -4,12 +4,7 @@ import org.apache.spark.sql.types.IntegerType
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
-import java.util
-
-
 final class IntervalTreeSpec extends AnyFunSpec with Matchers {
-
-  val NO_RESULT = new util.ArrayList()
 
   describe("Tree holding a single interval [1, 5]") {
     val intervals = Seq[Interval](Interval("1", "5", "file1", IntegerType))
