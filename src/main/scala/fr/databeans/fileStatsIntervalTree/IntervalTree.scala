@@ -1,4 +1,4 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
 case class IntervalTree(head: Node, intervals: Seq[Interval]) {
 

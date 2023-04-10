@@ -1,7 +1,7 @@
-package databeans.metrics
+package fr.databeans.metrics
 
-import databeans.fileStatsIntervalTree
-import databeans.fileStatsIntervalTree.{Interval, IntervalBoundary}
+import fr.databeans.fileStatsIntervalTree
+import fr.databeans.fileStatsIntervalTree.{Interval, IntervalBoundary, IntervalTree}
 
 case class ClusteringMetrics(
                               column: String,
@@ -28,7 +28,7 @@ class ClusteringMetricsBuilder {
         .sorted
         .map(p => Interval(p.value, p.value, p.value, p.statsType))
 
-      val tree = fileStatsIntervalTree.IntervalTree(filteredIntervals)
+      val tree = IntervalTree(filteredIntervals)
       var depthPerSubInterval: Seq[(Interval, Int)] = Seq()
       var histogramInput: Seq[(Interval, Int)] = Seq()
       var i = 0

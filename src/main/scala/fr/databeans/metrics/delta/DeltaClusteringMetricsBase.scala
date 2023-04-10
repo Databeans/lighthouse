@@ -1,7 +1,7 @@
-package databeans.metrics.delta
+package fr.databeans.metrics.delta
 
-import databeans.fileStatsIntervalTree.Interval
-import databeans.metrics.{ClusteringMetrics, ClusteringMetricsBuilder}
+import fr.databeans.fileStatsIntervalTree.Interval
+import fr.databeans.metrics.{ClusteringMetrics, ClusteringMetricsBuilder}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.{DataFrame, SparkSession}

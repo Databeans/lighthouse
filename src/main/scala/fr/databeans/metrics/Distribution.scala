@@ -1,4 +1,4 @@
-package databeans.metrics
+package fr.databeans.metrics
 
 object Distribution {
 

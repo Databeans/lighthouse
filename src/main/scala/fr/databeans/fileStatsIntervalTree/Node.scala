@@ -1,4 +1,4 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
 import org.apache.spark.sql.types.{DecimalType, IntegerType, LongType}
 

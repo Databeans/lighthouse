@@ -1,4 +1,4 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
 import org.apache.spark.sql.types.IntegerType
 import org.scalatest.funspec.AnyFunSpec
@@ -6,11 +6,7 @@ import org.scalatest.matchers.should.Matchers
 
 import java.util
 
-/**
- * Specification test for depth.IntervalTree.
- *
- * @see [[databeans.genericIntervalTree.IntervalTree]]
- */
+
 final class IntervalTreeSpec extends AnyFunSpec with Matchers {
 
   val NO_RESULT = new util.ArrayList()
