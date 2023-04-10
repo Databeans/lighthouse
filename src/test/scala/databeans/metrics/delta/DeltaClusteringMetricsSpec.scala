@@ -172,7 +172,7 @@ class DeltaClusteringMetricsSpec extends QueryTest with SharedSparkSession with 
     }
   }
 
-  test("compute metrics for partitioned delta table") {
+  test("compute metrics for a partitioned delta table") {
     withTempDir { dir =>
       spark.range(1, 50, 1, 5).toDF()
         .withColumn("part", col("id") % 3)
