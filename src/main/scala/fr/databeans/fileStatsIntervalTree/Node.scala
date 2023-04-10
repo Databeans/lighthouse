@@ -1,4 +1,4 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
 import org.apache.spark.sql.types.{DecimalType, IntegerType, LongType}
 
@@ -96,7 +96,6 @@ object Node {
   def apply(intervals: Seq[Interval]): Node = {
 
     var intervalsMap = SortedMap.empty[Interval, List[Interval]]
-
     val median = getMedian(intervals).get
 
     var leftNodes = List.empty[Interval]
@@ -104,12 +103,9 @@ object Node {
 
     intervals.foreach { interval =>
       if (interval.lowerThenPoint(median)) leftNodes ::= interval
-
       else if (interval.greaterThenPoint(median)) rightNodes ::= interval
-
       else intervalsMap ++= Seq(interval -> (interval :: intervalsMap.getOrElse(interval, List.empty)))
     }
-
 
     if (leftNodes.nonEmpty && rightNodes.nonEmpty) {
       Node(median, Some(Node(leftNodes)), Some(Node(rightNodes)), intervalsMap)

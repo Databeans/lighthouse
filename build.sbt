@@ -9,7 +9,6 @@ val scalaTestVersion = "3.1.1"
 val sparkVersion = "3.2.0"
 val deltaVersion = "2.0.0"
 
-// unmanagedBase := new java.io.File("/opt/miniconda3/lib/python3.9/site-packages/pyspark/jars")
 libraryDependencies += "org.scalactic" %% "scalactic" % scalaTestVersion
 libraryDependencies += "org.scalatest" %% "scalatest" % scalaTestVersion % "test"
 

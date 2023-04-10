@@ -1,6 +1,6 @@
-package databeans.genericIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
-case class IntervalTree[T](head: Node[T], intervals: Seq[Interval[T]]) {
+case class IntervalTree(head: Node, intervals: Seq[Interval]) {
 
   /**
    * @return the number of intervals in the tree.
@@ -26,7 +26,7 @@ case class IntervalTree[T](head: Node[T], intervals: Seq[Interval[T]]) {
    * @return a sequence of associated data for all intervals
    *         containing the target point
    */
-  def get(i: Interval[T]): List[String] = getIntervals(i).map(_.fileName)
+  def get(i: Interval): List[String] = getIntervals(i).map(_.fileName)
 
   /**
    * Runs an range query.
@@ -36,8 +36,8 @@ case class IntervalTree[T](head: Node[T], intervals: Seq[Interval[T]]) {
    * @param end   the end of the interval
    * @return all intervals containing the target point
    */
-  def getIntervals(i: Interval[T]): List[Interval[T]] =
-    head.query(i)
+  def getIntervals(i: Interval, inclusive: Boolean = true): List[Interval] =
+    head.query(i, inclusive)
 }
 
 object IntervalTree {
@@ -48,6 +48,6 @@ object IntervalTree {
    * @tparam T the type of data being stored
    * @return an depth.IntervalTree instance
    */
-  def apply[T: Ordering](intervals: Seq[Interval[T]]): IntervalTree[T] =
-    IntervalTree[T](Node(intervals), intervals)
+  def apply(intervals: Seq[Interval]): IntervalTree =
+    IntervalTree(Node(intervals), intervals)
 }
