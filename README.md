@@ -22,6 +22,7 @@ spark-submit \
    --master <master-url> \
    --packages io.delta:delta-core_2.12:2.0.0 \
    --jars /path/to/clusteringinfo_2.12-0.1.1.jar \
+   --/path/to/your/spark/application.jar
 ```
 ## CLUSTERING METRICS
 ___ 
