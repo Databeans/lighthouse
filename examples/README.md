@@ -17,7 +17,7 @@ To run the example:
 4. run ```cp target/scala-2.12/clusteringinfo_2.12-0.1.1.jar examples/lib/``` to copy the jar in the lib folder.  
 5. Navigate to the examples directory: ```cd examples```.  
 6. Run ```sbt compile``` to compile the example.  
-7. Run ```sbt run``` to execute the example.  
+7. Run ```sbt "runMain Quickstart --master local[*]"``` to execute the example.  
 8. The clustering metrics for the specified Delta table will be printed to the console.    
 
 By running this example, you can learn how to use DeltaClusteringMetrics to calculate the clustering metrics for a Delta table and interpret the results.  

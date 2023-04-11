@@ -7,8 +7,22 @@ By analyzing the data layout of Delta tables, the library extracts valuable insi
 Overall, DeltaClusteringMetrics enhances the user experience by allowing them to assess query performance without running them and identify when data maintenance operations should be performed on the table.  
 With its ability to provide a detailed overview of Delta tables, this library is an essential tool for anyone looking to improve the performance and cost-effectiveness of their data lake.  
 ## SETUP INSTRUCTIONS
-___ 
+___
+### Prerequisites
+- Apache Spark 3.x installed and running  
+- DeltaClusteringMetrics JAR file  
+- A Delta table to analyze  
+### Using Spark Shell
 
+### Using spark-submit
+Submit the application to the Spark cluster:
+``` 
+spark-submit \
+   --class com.example.MyApp \
+   --master <master-url> \
+   --packages io.delta:delta-core_2.12:2.0.0 \
+   --jars /path/to/clusteringinfo_2.12-0.1.1.jar \
+```
 ## CLUSTERING METRICS
 ___ 
 let’s suppose you have this delta table  
@@ -77,7 +91,7 @@ val clusteringMetrics = DeltaClusteringMetrics
 ```
 val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
-  .computeForColumn("keys","values")
+  .computeForColumns("keys","values")
 ```
 - computeForAllColumns(): extract clustering information for the entire table.  
   example:  
