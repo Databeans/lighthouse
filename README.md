@@ -11,6 +11,7 @@ ___
 ### Prerequisites
 - Apache Spark 3.x installed and running  
 - DeltaClusteringMetrics JAR file  
+- Delta 2.0.0  
 - A Delta table to analyze  
 ### Using Spark Shell  
 1. Open terminal  
@@ -35,6 +36,13 @@ spark-submit \
    --jars /path/to/clusteringinfo_2.12-0.1.1.jar \
    --/path/to/your/spark/application.jar
 ```
+This command specifies the following options:  
+- --class: The name of the main class of your application.  
+- --master: The URL of the Spark cluster to use.  
+- --packages: The Maven coordinates of the Delta Lake library to use.  
+- --jars: The path to the clusteringinfo JAR file.  
+The path to your application's JAR file.  
+Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
 ## CLUSTERING METRICS
 ___ 
 let’s suppose you have this delta table  
