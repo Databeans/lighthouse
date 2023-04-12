@@ -12,8 +12,19 @@ ___
 - Apache Spark 3.x installed and running  
 - DeltaClusteringMetrics JAR file  
 - A Delta table to analyze  
-### Using Spark Shell
-
+### Using Spark Shell  
+1. Open terminal  
+2. Run the following command, replacing /path/to/clusteringinfo_2.12-0.1.1.jar with the actual path to the clusteringinfo_2.12-0.1.1 jar file:  ``` spark-shell \
+--packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
+--conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
+--jars /path/to/clusteringinfo_2.12-0.1.1.jar ```  
+3. Import the DeltaClusteringMetrics class :  
+```import databeans.metrics.delta.DeltaClusteringMetrics```  
+4. Use the following code to compute clustering metrics for a specific column in your Delta table:  
+```val clusteringMetrics = DeltaClusteringMetrics.forPath("path/to/your/deltaTable", spark).computeForColumn("col")```  
+   Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
+5. Display the computed clustering metrics using the show() method:  
+```clusteringMetrics.show() ```
 ### Using spark-submit
 Submit the application to the Spark cluster:
 ``` 
