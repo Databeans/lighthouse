@@ -41,8 +41,17 @@ This command specifies the following options:
 - --master: The URL of the Spark cluster to use.  
 - --packages: The Maven coordinates of the Delta Lake library to use.  
 - --jars: The path to the clusteringinfo JAR file.  
-The path to your application's JAR file.  
+- The path to your application's JAR file.  
 Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
+Example:
+```  
+spark-submit
+--class Quickstart 
+--master local[*] 
+--packages io.delta:delta-core_2.12:2.0.0 
+--jars lib/clusteringinfo_2.12-0.1.1.jar 
+target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
+```  
 ## CLUSTERING METRICS
 ___ 
 let’s suppose you have this delta table  
