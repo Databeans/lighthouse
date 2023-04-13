@@ -2,28 +2,29 @@
 
 ## OVERVIEW
 ___ 
-DeltaClusteringMetrics is an open-source library developed by Databeans in 2023 that enables Delta lake users to optimize their data for better performance and cost-effectiveness.  
-By analyzing the data layout of Delta tables, the library extracts valuable insights into how the data is distributed within the tables and provides metrics that can help data engineers and analysts make informed decisions about data maintenance operations. These operations, such as vacuuming or compacting, can improve query performance and reduce storage costs.  
-Overall, DeltaClusteringMetrics enhances the user experience by allowing them to assess query performance without running them and identify when data maintenance operations should be performed on the table.  
-With its ability to provide a detailed overview of Delta tables, this library is an essential tool for anyone looking to improve the performance and cost-effectiveness of their data lake.  
+DeltaClusteringMetrics is an open-source library developed by Databeans to optimize Delta lake performance and cost-effectiveness.  
+It is designed to monitor the health of Delta tables from a data layout perspective and provides valuable insights into how data is distributed inside parquet files that make up the Delta table.  
+This information helps users to identify when data maintenance operations should be performed like vacuuming or compacting, which improve query performance and reduce storage costs.  
+Overall, this library is an essential tool for improving the performance and cost-effectiveness of data lakes. 
 ## SETUP INSTRUCTIONS
 ___
 ### Prerequisites
-- Apache Spark 3.x installed and running  
+- Apache Spark 3.2.0 installed and running  
 - DeltaClusteringMetrics JAR file  
 - Delta 2.0.0  
 - A Delta table to analyze  
 ### Using Spark Shell  
 1. Open terminal  
-2. Run the following command, replacing /path/to/clusteringinfo_2.12-0.1.1.jar with the actual path to the clusteringinfo_2.12-0.1.1 jar file:  ``` spark-shell \
+2. Run the following command:  ``` spark-shell \
 --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
 --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
 --jars /path/to/clusteringinfo_2.12-0.1.1.jar ```  
+PS: Replace /path/to/clusteringinfo_2.12-0.1.1.jar with the actual path to the clusteringinfo_2.12-0.1.1 jar file  
 3. Import the DeltaClusteringMetrics class :  
 ```import databeans.metrics.delta.DeltaClusteringMetrics```  
-4. Use the following code to compute clustering metrics for a specific column in your Delta table:  
+4. Compute clustering metrics for a specific column in your Delta table:  
 ```val clusteringMetrics = DeltaClusteringMetrics.forPath("path/to/your/deltaTable", spark).computeForColumn("col")```  
-   Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
+PS:  Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
 5. Display the computed clustering metrics using the show() method:  
 ```clusteringMetrics.show() ```
 ### Using spark-submit
@@ -37,12 +38,12 @@ spark-submit \
    --/path/to/your/spark/application.jar
 ```
 This command specifies the following options:  
-- --class: The name of the main class of your application.  
-- --master: The URL of the Spark cluster to use.  
-- --packages: The Maven coordinates of the Delta Lake library to use.  
-- --jars: The path to the clusteringinfo JAR file.  
+- --class: Name of the main class of your application.  
+- --master: URL of the Spark cluster to use.  
+- --packages: Maven coordinates of the Delta Lake library to use.  
+- --jars: Path to the clusteringinfo_2.12-0.1.1.jar file.  
 - The path to your application's JAR file.  
-Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
+PS: Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
 Example:
 ```  
 spark-submit
@@ -107,7 +108,9 @@ The histogram contains buckets with widths:
 ### Parameters
 ___ 
 - forName(“ tableName ”): Name of the Delta Table.  
+***
 - forPath(“ Path ”): Path for the Delta Table.  
+***
 - computeForColumn(“columnName”): extract clustering information for a certain column.  
 example:  
 ```
@@ -115,6 +118,7 @@ val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
   .computeForColumn("keys")
 ```
+***
 - computeForColumns(“col1”,”col2”,…): extract clustering information for multiple columns.  
   example:
 ```
@@ -122,6 +126,7 @@ val clusteringMetrics = DeltaClusteringMetrics
   .forName("DeltaTable")
   .computeForColumns("keys","values")
 ```
+***
 - computeForAllColumns(): extract clustering information for the entire table.  
   example:  
 ```
@@ -132,9 +137,10 @@ val clusteringMetrics = DeltaClusteringMetrics
 ## LIMITATIONS
 ___ 
 - Supported data types: DeltaClusteringMetrics currently supports the following data types: Int, Long, Decimal, and String.  
-- DeltaClusteringMetrics cannot compute metrics for a column without statistics: Delta tables require statistics to be computed on the columns before they can be used for clustering, so if statistics are not available, DeltaClusteringMetrics will not be able to compute metrics for that column.  
-- DeltaClusteringMetrics cannot compute metrics for a non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
-- Clustering metrics cannot be computed for partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
+- DeltaClusteringMetrics cannot compute metrics for:  
+     * A column without statistics: Delta tables require statistics to be computed on the columns before they can be used for clustering, so if statistics are not available, DeltaClusteringMetrics will not be able to compute metrics for that column.  
+     * A non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
+     * Partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
 - DeltaClusteringMetrics is only compatible with Delta tables and may not work with other table formats such as Parquet or ORC.  
 
 ## TECHNOLOGIES
