@@ -19,12 +19,12 @@ ___
 --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
 --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
 --jars /path/to/clusteringinfo_2.12-0.1.1.jar ```  
-PS: Replace /path/to/clusteringinfo_2.12-0.1.1.jar with the actual path to the clusteringinfo_2.12-0.1.1 jar file  
+**PS:**   Replace /path/to/clusteringinfo_2.12-0.1.1.jar with the actual path to the clusteringinfo_2.12-0.1.1 jar file  
 3. Import the DeltaClusteringMetrics class :  
 ```import databeans.metrics.delta.DeltaClusteringMetrics```  
 4. Compute clustering metrics for a specific column in your Delta table:  
 ```val clusteringMetrics = DeltaClusteringMetrics.forPath("path/to/your/deltaTable", spark).computeForColumn("col")```  
-PS:  Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
+**PS:**   Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
 5. Display the computed clustering metrics using the show() method:  
 ```clusteringMetrics.show() ```
 ### Using spark-submit
@@ -43,7 +43,7 @@ This command specifies the following options:
 - --packages: Maven coordinates of the Delta Lake library to use.  
 - --jars: Path to the clusteringinfo_2.12-0.1.1.jar file.  
 - The path to your application's JAR file.  
-PS: Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
+**PS:**   Make sure to replace <master-url> with the URL of your Spark cluster, and replace the paths to the JAR files with the actual paths on your machine.    
 Example:
 ```  
 spark-submit
@@ -105,8 +105,7 @@ A histogram detailing the distribution of the overlap_depth on the table by grou
 The histogram contains buckets with widths:
 * 0 to 16 with increments of 1.  
 * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
-### Parameters
-___ 
+### Parameters  
 - forName(“ tableName ”): Name of the Delta Table.  
 ***
 - forPath(“ Path ”): Path for the Delta Table.  
