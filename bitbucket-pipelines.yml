@@ -13,11 +13,3 @@ pipelines:
             - update-alternatives --install /usr/bin/sbt sbt /usr/share/sbt/bin/sbt 1
             # Run the tests using sbt
             - sbt test
-  # Define the pipeline to run on the master branch
-  branches:
-    master:
-      - step:
-          name: Prevent direct merges to master
-          script:
-            # Check if the commit message contains the "[skip ci]" keyword
-            - if [[ $(git log -n 1 --pretty=format:%s) != *"[skip ci]"* ]]; then exit 1; fi
