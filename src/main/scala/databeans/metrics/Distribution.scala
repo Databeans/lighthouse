@@ -45,4 +45,3 @@ object Distribution {
     Map((populatedBuckets ++ unPopulatedBuckets).toSeq.sortBy(_._1): _*)
   }
 }
-
