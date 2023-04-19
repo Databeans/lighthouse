@@ -4,8 +4,8 @@
 ___ 
 DeltaClusteringMetrics is an open-source library developed by Databeans to optimize Delta lake performance and cost-effectiveness.  
 It is designed to monitor the health of Delta tables from a data layout perspective and provides valuable insights into how data is distributed inside parquet files that make up the Delta table.  
-This information helps users to identify when data maintenance operations should be performed like vacuuming or compacting, which improve query performance and reduce storage costs.  
-Overall, this library is an essential tool for improving the performance and cost-effectiveness of data lakes. 
+This information helps users to identify when data maintenance operations such as vacuuming or compacting should be performed, which improve query performance and reduce storage costs.  
+Admittedly, this library is an essential step to achieving the best performance for data lakes while keeping costs at a minimum.  
 ## SETUP INSTRUCTIONS
 ___
 ### Prerequisites
@@ -63,7 +63,7 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
 ## CLUSTERING METRICS
 ___ 
-let’s suppose you have this delta table  
+let’s take a look at the next delta table  
 ```
 spark.range(1, 5, 1).toDF()
 .withColumn("id", col("id").cast(IntegerType))
@@ -149,6 +149,7 @@ ___
      * A non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
      * Partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
 - DeltaClusteringMetrics is only compatible with Delta tables and may not work with other table formats such as Parquet or ORC.  
+- When handling a column with all null values, ```the average_overlap``` and ```average_overlap_depth``` metrics will be assigned a value of -1, while the ```file_depth_histogram``` metric will be assigned a null value.  
 
 ## TECHNOLOGIES
 ___ 
