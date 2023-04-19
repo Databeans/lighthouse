@@ -105,6 +105,3 @@ class ClusteringMetricsBuilder {
     intervals.count(i => i.start == i.end)
   }
 }
-
-
-
