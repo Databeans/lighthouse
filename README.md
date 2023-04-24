@@ -3,8 +3,8 @@
 ## OVERVIEW
 ___ 
 DeltaClusteringMetrics is an open-source library developed by Databeans to optimize Delta lake performance and cost-effectiveness.  
-It is designed to monitor the health of Delta tables from a data layout perspective and provides valuable insights into how data is distributed inside parquet files that make up the Delta table.  
-This information helps users to identify when data maintenance operations such as vacuuming or compacting should be performed, which improve query performance and reduce storage costs.  
+It is designed to monitor the health of Delta tables from a data layout perspective and provides valuable insights on how data is distributed inside parquet files that make up the Delta table.  
+This information helps users to identify when data maintenance operations (vacuum, optimize, Z-order …) should be performed, which improve query performance and reduce storage costs.  
 Admittedly, this library is an essential step to achieving the best performance for data lakes while keeping costs at a minimum.  
 ## SETUP INSTRUCTIONS
 ___
