@@ -1,0 +1,20 @@
+image: hseeberger/scala-sbt:8u302_1.5.5_2.13.6
+
+pipelines:
+  default:
+     - step:
+        name: Build and Test
+        caches:
+          - sbt
+        script:
+          - sbt clean compile test
+  branches:
+    master:
+      - step:
+          name: Prevent Direct Merge to Master
+          script:
+            - |
+              if [[ "$BITBUCKET_PR_DESTINATION_BRANCH" == "master" ]]; then
+                echo "Direct merges to the master branch are not allowed. Please create a pull request instead."
+                exit 1
+              fi

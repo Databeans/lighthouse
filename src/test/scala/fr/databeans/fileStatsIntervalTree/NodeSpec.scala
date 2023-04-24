@@ -1,13 +1,10 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.fileStatsIntervalTree
 
 import org.apache.spark.sql.types.IntegerType
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
-import java.util
 
 final class NodeSpec extends AnyFunSpec with Matchers {
-
-  val NO_RESULT = new util.ArrayList()
 
   describe("depth.Node holding a single interval [1, 5]") {
     val intervals = Seq[Interval](Interval("1", "5", "file1", IntegerType))
@@ -17,9 +14,9 @@ final class NodeSpec extends AnyFunSpec with Matchers {
       assert(node.isEmpty === false)
     }
 
-    ignore("should has no left or right children") {
-      // node.leftNode shouldBe Optional.empty
-      // node.rightNode shouldBe Optional.empty
+    it("should has no left or right children") {
+      node.left shouldBe None
+      node.right shouldBe None
     }
 
     it("should return 1 result on query interval [4, 8]") {
@@ -57,8 +54,8 @@ final class NodeSpec extends AnyFunSpec with Matchers {
     }
 
     it("should has 1 left and 1 right child") {
-      // node.leftNode.get.size shouldEqual 1
-      // node.rightNode.get.size shouldEqual 1
+      node.left.get.size shouldEqual 1
+      node.right.get.size shouldEqual 1
     }
 
     it("should return 2 results on query interval [6, 19]") {
@@ -66,7 +63,7 @@ final class NodeSpec extends AnyFunSpec with Matchers {
     }
   }
 
-  describe("depth.Node holding same interval multiple times") {
+  describe("Node holding same interval multiple times") {
     val intervals = Seq[Interval](
       Interval("1", "355", "file1", IntegerType),
       Interval("1", "355", "file2", IntegerType),
@@ -79,9 +76,9 @@ final class NodeSpec extends AnyFunSpec with Matchers {
       node.isEmpty shouldBe false
     }
 
-    ignore("should has 1 left and 1 right child") {
-      // node.leftNode.get.size shouldEqual 1
-      // node.rightNode.get.size shouldEqual 1
+    it("should has no left or right children") {
+      node.left shouldBe None
+      node.right shouldBe None
     }
 
     it("should return 3 results on query interval [6, 19]") {
@@ -113,9 +110,10 @@ final class NodeSpec extends AnyFunSpec with Matchers {
       node.isEmpty shouldBe false
     }
 
-    ignore("should has 1 left and 1 right child") {
-      // node.leftNode.get.size shouldEqual 1
-      // node.rightNode.get.size shouldEqual 1
+    it("should has 1 left and 1 right child") {
+      println(node)
+      node.left.get.size shouldEqual 2
+      node.right.get.size shouldEqual 2
     }
 
     it("should return 2 results on the first and last files and 3 else") {
