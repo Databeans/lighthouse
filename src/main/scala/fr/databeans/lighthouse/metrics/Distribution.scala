@@ -1,4 +1,4 @@
-package fr.databeans.metrics
+package fr.databeans.lighthouse.metrics
 
 object Distribution {
 

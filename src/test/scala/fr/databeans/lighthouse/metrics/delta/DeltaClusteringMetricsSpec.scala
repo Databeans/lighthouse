@@ -1,6 +1,6 @@
-package fr.databeans.metrics.delta
+package fr.databeans.lighthouse.metrics.delta
 
-import fr.databeans.metrics.Distribution
+import fr.databeans.lighthouse.metrics.Distribution
 import org.apache.spark.sql.{QueryTest, Row}
 import org.apache.spark.sql.delta.DeltaLog
 import org.apache.spark.sql.delta.test.DeltaExtendedSparkSession

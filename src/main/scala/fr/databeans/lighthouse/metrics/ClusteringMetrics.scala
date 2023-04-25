@@ -1,7 +1,6 @@
-package fr.databeans.metrics
+package fr.databeans.lighthouse.metrics
 
-import fr.databeans.fileStatsIntervalTree
-import fr.databeans.fileStatsIntervalTree.{Interval, IntervalBoundary, IntervalTree}
+import fr.databeans.lighthouse.fileStatsIntervalTree.{Interval, IntervalBoundary, IntervalTree}
 
 case class ClusteringMetrics(
                               column: String,
@@ -94,7 +93,7 @@ class ClusteringMetricsBuilder {
   }
 
   private def computeAverageOverlaps(intervals: Seq[Interval]): Double = {
-    val tree = fileStatsIntervalTree.IntervalTree(intervals)
+    val tree = IntervalTree(intervals)
     val intervalsOverlaps = intervals
       .map(i => tree.getIntervals(i).size - 1)
 

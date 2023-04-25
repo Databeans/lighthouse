@@ -1,6 +1,6 @@
-package fr.databeans.metrics
+package fr.databeans.lighthouse.metrics
 
-import fr.databeans.fileStatsIntervalTree.{Interval, Node}
+import fr.databeans.lighthouse.fileStatsIntervalTree.{Interval, Node}
 import org.apache.spark.sql.types.{DecimalType, IntegerType}
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
