@@ -14,7 +14,7 @@ To run the example:
 1. Download or clone the DeltaClusteringMetrics project.   
 2. run ```sbt build``` then ```sbt compile```.  
 3. run ```sbt package``` to generate the jar file.  
-4. run ```cp target/scala-2.12/clusteringinfo_2.12-0.1.1.jar examples/lib/``` to copy the jar in the lib folder.  
+4. run ```cp target/scala-2.12/clusteringinfo_2.12-0.1.0.jar examples/lib/``` to copy the jar in the lib folder.  
 5. Navigate to the examples directory: ```cd examples```.  
 6. Run ```sbt compile``` to compile the example.  
 7. Run ```sbt "runMain Quickstart --master local[*]"``` to execute the example.  

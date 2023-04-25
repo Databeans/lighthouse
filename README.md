@@ -63,8 +63,36 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
 ## CLUSTERING METRICS
 ___ 
-Assuming that you have a delta table   
-### Usage:  
+### Parameters
+- forName(“ tableName ”): Name of the Delta Table.
+***
+- forPath(“ Path ”): Path for the Delta Table.
+***
+- computeForColumn(“columnName”): extract clustering information for a certain column.  
+  example:
+```
+val clusteringMetrics = DeltaClusteringMetrics
+  .forName("DeltaTable")
+  .computeForColumn("keys")
+```
+***
+- computeForColumns(“col1”,”col2”,…): extract clustering information for multiple columns.  
+  example:
+```
+val clusteringMetrics = DeltaClusteringMetrics  
+  .forName("DeltaTable")  
+  .computeForColumns("keys","values")  
+```
+***
+- computeForAllColumns(): extract clustering information for the entire table.  
+  example:
+```
+val clusteringMetrics = DeltaClusteringMetrics  
+  .forName("DeltaTable")  
+  .computeForAllColumns()  
+```  
+### Usage: 
+Assuming that you have a delta table
 ```
 import databeans.metrics.delta.DeltaClusteringMetrics
 ```
@@ -73,6 +101,7 @@ val clusteringMetric = DeltaClusteringMetrics
  .forPath("path/to/deltaTable", spark)
  .computeForColumn("col_name")
 ```
+
 ### Output:
 The library will then compute the clustering metrics and generate a dataframe containing the next columns:  
 
@@ -103,34 +132,7 @@ A histogram detailing the distribution of the overlap_depth on the table by grou
 The histogram contains buckets with widths:
 * 0 to 16 with increments of 1.  
 * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
-### Parameters  
-- forName(“ tableName ”): Name of the Delta Table.  
-***
-- forPath(“ Path ”): Path for the Delta Table.  
-***
-- computeForColumn(“columnName”): extract clustering information for a certain column.  
-example:  
-```
-val clusteringMetrics = DeltaClusteringMetrics
-  .forName("DeltaTable")
-  .computeForColumn("keys")
-```
-***
-- computeForColumns(“col1”,”col2”,…): extract clustering information for multiple columns.  
-  example:
-```
-val clusteringMetrics = DeltaClusteringMetrics
-  .forName("DeltaTable")
-  .computeForColumns("keys","values")
-```
-***
-- computeForAllColumns(): extract clustering information for the entire table.  
-  example:  
-```
-val clusteringMetrics = DeltaClusteringMetrics
-  .forName("DeltaTable")
-  .computeForAllColumns()
-```
+
 ## NOTES
 ___ 
 - DeltaClusteringMetrics cannot compute metrics for:  
