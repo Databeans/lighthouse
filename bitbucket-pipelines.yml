@@ -4,7 +4,7 @@ pipelines:
     - step:
         name: Build and Test
         script:
-          - sbt clean compile test
+          - sbt test
 
   branches:
     master:
