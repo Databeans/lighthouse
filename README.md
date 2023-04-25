@@ -131,16 +131,11 @@ Throughout this figure, we will study the evolution of the average_overlap_depth
 => The higher the average_overlap and the average_overlap_depth, the worse the clustering
 #### - File_depth_histogram:
 A histogram detailing the distribution of the overlap_depth on the table by grouping the tables’ files by their proportional overlap depth.  
-The histogram contains buckets with widths:
-* 0 to 16 with increments of 1.  
-* For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
 
 ## NOTES
 ___ 
-- DeltaClusteringMetrics cannot compute metrics for:  
-    * A column without statistics: Delta tables require statistics to be computed on the columns before the clustering metrics can be computed for it, so if statistics are not available, DeltaClusteringMetrics will not be able to compute metrics for that column.  
-    * A non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
-    * Partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
+- DeltaClusteringMetrics cannot compute metrics for a column without statistics: Before computing clustering metrics, DeltaClusteringMetrics requires the statistics of the columns to be computed, so if statistics are not available, it will not be able to compute metrics for that column.  
+- clustering metrics cannot be computed for partitioning columns  
 - When handling a column with all null values, ```the average_overlap``` and ```average_overlap_depth``` metrics will be assigned a value of -1, while the ```file_depth_histogram``` metric will be assigned a null value.  
 
 ## LIMITATIONS
