@@ -50,12 +50,12 @@ spark-submit
 --class Quickstart 
 --master local[*] 
 --packages io.delta:delta-core_2.12:2.0.0 
---jars lib/clusteringinfo_2.12-0.1.1.jar 
+--jars lib/clusteringinfo_2.12-0.1.0.jar 
 target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
 1. Download the notebook and import it to your workspace. You can download it from [here](https://bitbucket.org/data_beans/clustering-info/src/user-guide/databricksNotebook/DeltaClusteringMetrics.dbc).  
-2. Add the clusteringinfo_2.12-0.1.1.jar to your cluster.  
+2. Add the clusteringinfo_2.12-0.1.0.jar to your cluster.  
 3. Create a new cell.  
 4. Insert ```%run path/to/DeltaClusteringMetrics```.  
    **PS:**   Replace path/to/your/DeltaClusteringMetrics with the actual path to the DeltaClusteringMetrics notebook.  
