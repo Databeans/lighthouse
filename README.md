@@ -81,24 +81,24 @@ The library will then compute the clustering metrics and generate a dataframe co
 | col_name | 5                | 5                        | 3.0             | 4 .0                  | {5.0 -> 0, 10.0 -... |  
   
 
-### - total_file_count:  
+#### - total_file_count:  
 Total number of files composing the Delta table.  
-### - total_uniform_file_count:  
+#### - total_uniform_file_count:  
 Files in which min and max values of a given ordering column are equal  
-### - average_overlap:  
+#### - average_overlap:  
 Average number of overlapping files for each file in the delta table.  
 this is a simple example of a table consisting of 4 files:  
 
 ![](https://miro.medium.com/v2/resize:fit:828/0*_Pi7feo5ZxAdvW8k)  
 
-### - average_overlap_depth:  
+#### - average_overlap_depth:  
 The average number of files that will be read when an overlap occurs.    
 Throughout this figure, we will study the evolution of the average_overlap_depth of a table containing 4 files:  
 
 ![](https://miro.medium.com/v2/resize:fit:1400/0*rmoB3fxNL2kSqijR)  
 
 => The higher the average_overlap and the average_overlap_depth, the worse the clustering
-### - File_depth_histogram:
+#### - File_depth_histogram:
 A histogram detailing the distribution of the overlap_depth on the table by grouping the tables’ files by their proportional overlap depth.  
 The histogram contains buckets with widths:
 * 0 to 16 with increments of 1.  
