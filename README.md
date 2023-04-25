@@ -64,7 +64,7 @@ With these steps completed, you should be able to use the DeltaClusteringMetrics
 ## CLUSTERING METRICS
 ___ 
 Assuming that you have a delta table   
-Using DeltaClusteringMetrics:  
+### Usage:  
 ```
 import databeans.metrics.delta.DeltaClusteringMetrics
 ```
@@ -73,6 +73,7 @@ val clusteringMetric = DeltaClusteringMetrics
  .forPath("path/to/deltaTable", spark)
  .computeForColumn("col_name")
 ```
+### Output:
 The library will then compute the clustering metrics and generate a dataframe containing the next columns:  
 
 | column   | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram |
