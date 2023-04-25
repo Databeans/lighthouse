@@ -132,10 +132,10 @@ val clusteringMetrics = DeltaClusteringMetrics
 ```
 ## NOTES
 ___ 
-- DeltaClusteringMetrics cannot compute metrics for:
-* A column without statistics: Delta tables require statistics to be computed on the columns before the clustering metrics can be computed for it, so if statistics are not available, DeltaClusteringMetrics will not be able to compute metrics for that column.  
-* A non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
-* Partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
+- DeltaClusteringMetrics cannot compute metrics for:  
+    * A column without statistics: Delta tables require statistics to be computed on the columns before the clustering metrics can be computed for it, so if statistics are not available, DeltaClusteringMetrics will not be able to compute metrics for that column.  
+    * A non-existent column: The column used for clustering must exist in the Delta table, otherwise, DeltaClusteringMetrics will not be able to compute metrics for it.  
+    * Partitioning columns: The columns used for partitioning a Delta table cannot be used for clustering, so DeltaClusteringMetrics will not compute metrics for them.  
 - When handling a column with all null values, ```the average_overlap``` and ```average_overlap_depth``` metrics will be assigned a value of -1, while the ```file_depth_histogram``` metric will be assigned a null value.  
 
 ## LIMITATIONS
