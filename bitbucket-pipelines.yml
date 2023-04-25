@@ -6,7 +6,7 @@ pipelines:
         caches:
           - sbt
         script:
-          - sbt test
+          - sbt clean compile test
 
   branches:
     master:
