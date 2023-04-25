@@ -75,9 +75,9 @@ val clusteringMetric = DeltaClusteringMetrics
 ```
 The library will then compute the clustering metrics and generate a dataframe containing the next columns:  
 
-| column | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram |
-|--------|------------------|--------------------------|-----------------|-----------------------|----------------------|
-| Keys   | 5                | 5                        | 3.0             | 4 .0                  | {5.0 -> 0, 10.0 -... |  
+| column   | total_file_count | total_uniform_file_count | average_overlap | average_overlap_depth | file_depth_histogram |
+|----------|------------------|--------------------------|-----------------|-----------------------|----------------------|
+| col_name | 5                | 5                        | 3.0             | 4 .0                  | {5.0 -> 0, 10.0 -... |  
   
 
 ### - total_file_count:  
