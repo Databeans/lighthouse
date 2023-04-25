@@ -15,7 +15,7 @@ object Quickstart {
 
     spark.range(1, 5, 1).toDF()
       .withColumn("id", col("id").cast(IntegerType))
-      .withColumn("records", lit(1))
+      .withColumn("keys", lit(1))
       .withColumn("values", col("id") * 3)
       .write.mode("overwrite")
       .format("delta")
@@ -23,7 +23,7 @@ object Quickstart {
 
     val clusteringMetric = DeltaClusteringMetrics
       .forPath("deltaTable", spark)
-      .computeForColumn("records")
+      .computeForColumn("id")
     clusteringMetric.show()
   }
 }
