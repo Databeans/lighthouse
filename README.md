@@ -5,7 +5,8 @@ ___
 DeltaClusteringMetrics is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership.  
 It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provides valuable insights about how well the data is clustered.  
 This information helps users to identify when data maintenance operations (vacuum, optimize, Z-order …) should be performed, which improve query performance and reduce storage costs.  
-DeltaClusteringMetrics library supports Delta format, making it an essential step to achieving the best performance for data lakehouses while keeping costs at a minimum.  
+The DeltaClusteringMetrics library currently has support for Delta format, and we plan to expand its capabilities to include other open formats in the future.  
+
 ## SETUP INSTRUCTIONS
 ___
 ### Prerequisites
@@ -61,6 +62,7 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
    **PS:**   Replace path/to/your/DeltaClusteringMetrics with the actual path to the DeltaClusteringMetrics notebook.  
 5. Run the cell.   
 With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
+
 ## CLUSTERING METRICS
 ___ 
 ### Parameters
