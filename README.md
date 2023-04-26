@@ -66,13 +66,13 @@ With these steps completed, you should be able to use the DeltaClusteringMetrics
 ## CLUSTERING METRICS
 ___ 
 ### Parameters
-- forName(deltaTable: String, spark: SparkSession): DeltaClusteringMetrics  
+- forName(deltaTable: String, spark: SparkSession)  
 **PS**:  
      * deltaTable: Name of the Delta table  
      * spark: SparkSession instance  
      * The function returns a DeltaClusteringMetrics instance  
 ***
-- forPath(deltaPath: String, spark: SparkSession): DeltaClusteringMetrics  
+- forPath(deltaPath: String, spark: SparkSession)  
 **PS**:  
      * deltaPath: Path of the Delta table  
      * spark: SparkSession instance  
