@@ -1,4 +1,4 @@
-package fr.databeans.fileStatsIntervalTree
+package fr.databeans.lighthouse.fileStatsIntervalTree
 
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
