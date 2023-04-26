@@ -1,7 +1,7 @@
 # DeltaClusteringMetrics Example
 This example demonstrates how to use DeltaClusteringMetrics to analyze the data layout of a Delta table.  
-DeltaClusteringMetrics is library designed to monitor the health of the Lakehouse from a data layout perspective, and provides valuable insights about how well the data is clustered.   
-This example calculates the clustering metrics using DeltaClusteringMetrics of delta table, and prints the results to the console. It can be run if the prerequisites are satisfied.
+DeltaClusteringMetrics is a library designed to monitor the health of the Lakehouse from a data layout perspective, and provide valuable insights about how well data is clustered.   
+This example calculates the clustering metrics of a delta table, and prints the results to the console. It can be run if the prerequisites are satisfied.
 
 ## Prerequisites  
 - Scala 2.12.13

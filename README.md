@@ -66,15 +66,23 @@ With these steps completed, you should be able to use the DeltaClusteringMetrics
 ## CLUSTERING METRICS
 ___ 
 ### Parameters
-- forName(“ tableName ”): Name of the Delta Table.
+- forName(deltaTable: String, spark: SparkSession): DeltaClusteringMetrics  
+**PS**:  
+* deltaTable: Name of the Delta table  
+* spark: SparkSession instance  
+* The function returns a DeltaClusteringMetrics instance  
 ***
-- forPath(“ Path ”): Path for the Delta Table.
+- forPath(deltaPath: String, spark: SparkSession): DeltaClusteringMetrics  
+**PS**:  
+* deltaPath: Path of the Delta table  
+* spark: SparkSession instance  
+* The function returns a DeltaClusteringMetrics instance
 ***
 - computeForColumn(“columnName”): extract clustering information for a certain column.  
   example:
 ```
 val clusteringMetrics = DeltaClusteringMetrics
-  .forName("DeltaTable")
+  .forName("DeltaTable",spark)
   .computeForColumn("keys")
 ```
 ***
@@ -82,7 +90,7 @@ val clusteringMetrics = DeltaClusteringMetrics
   example:
 ```
 val clusteringMetrics = DeltaClusteringMetrics  
-  .forName("DeltaTable")  
+  .forName("DeltaTable",spark)  
   .computeForColumns("keys","values")  
 ```
 ***
@@ -90,7 +98,7 @@ val clusteringMetrics = DeltaClusteringMetrics
   example:
 ```
 val clusteringMetrics = DeltaClusteringMetrics  
-  .forName("DeltaTable")  
+  .forName("DeltaTable",spark)  
   .computeForAllColumns()  
 ```  
 ### Usage: 
@@ -131,6 +139,8 @@ Throughout this figure, we will study the evolution of the average_overlap_depth
 => The higher the average_overlap and the average_overlap_depth, the worse the clustering
 #### - File_depth_histogram:
 A histogram detailing the distribution of the overlap_depth on the table by grouping the tables’ files by their proportional overlap depth.  
+   * 0 to 16 with increments of 1.  
+   * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
 
 ## NOTES
 ___ 
