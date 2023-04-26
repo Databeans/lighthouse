@@ -1,4 +1,4 @@
-import databeans.metrics.delta.DeltaClusteringMetrics
+import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetrics
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, lit}
 import org.apache.spark.sql.types.IntegerType

@@ -22,7 +22,7 @@ ___
 --jars /path/to/clusteringinfo_2.12-0.1.0.jar ```  
 **PS:**   Replace /path/to/clusteringinfo_2.12-0.1.0.jar with the actual path to the clusteringinfo_2.12-0.1.0 jar file  
 3. Import the DeltaClusteringMetrics class :  
-```import databeans.metrics.delta.DeltaClusteringMetrics```  
+```import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetrics```  
 4. Compute clustering metrics for a specific column in your Delta table:  
 ```val clusteringMetrics = DeltaClusteringMetrics.forPath("path/to/your/deltaTable", spark).computeForColumn("col_name")```  
 **PS:**   Replace path/to/your/deltaTable with the actual path to your Delta table and col with the name of the column you want to compute clustering metrics for.  
@@ -66,17 +66,13 @@ With these steps completed, you should be able to use the DeltaClusteringMetrics
 ## CLUSTERING METRICS
 ___ 
 ### Parameters
-- forName(deltaTable: String, spark: SparkSession)  
-**PS**:  
+- forName(deltaTable: String, spark: SparkSession): DeltaClusteringMetrics  
      * deltaTable: Name of the Delta table  
      * spark: SparkSession instance  
-     * The function returns a DeltaClusteringMetrics instance  
 ***
-- forPath(deltaPath: String, spark: SparkSession)  
-**PS**:  
+- forPath(deltaPath: String, spark: SparkSession): DeltaClusteringMetrics  
      * deltaPath: Path of the Delta table  
      * spark: SparkSession instance  
-     * The function returns a DeltaClusteringMetrics instance
 ***
 - computeForColumn(“columnName”): extract clustering information for a certain column.  
   example:
@@ -104,7 +100,7 @@ val clusteringMetrics = DeltaClusteringMetrics
 ### Usage: 
 Assuming that you have a delta table
 ```
-import databeans.metrics.delta.DeltaClusteringMetrics
+import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetrics
 ```
 ```
 val clusteringMetric = DeltaClusteringMetrics
