@@ -68,15 +68,15 @@ ___
 ### Parameters
 - forName(deltaTable: String, spark: SparkSession): DeltaClusteringMetrics  
 **PS**:  
-* deltaTable: Name of the Delta table  
-* spark: SparkSession instance  
-* The function returns a DeltaClusteringMetrics instance  
+     * deltaTable: Name of the Delta table  
+     * spark: SparkSession instance  
+     * The function returns a DeltaClusteringMetrics instance  
 ***
 - forPath(deltaPath: String, spark: SparkSession): DeltaClusteringMetrics  
 **PS**:  
-* deltaPath: Path of the Delta table  
-* spark: SparkSession instance  
-* The function returns a DeltaClusteringMetrics instance
+     * deltaPath: Path of the Delta table  
+     * spark: SparkSession instance  
+     * The function returns a DeltaClusteringMetrics instance
 ***
 - computeForColumn(“columnName”): extract clustering information for a certain column.  
   example:
