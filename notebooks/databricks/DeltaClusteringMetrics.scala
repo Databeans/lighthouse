@@ -1,6 +1,8 @@
 // Databricks notebook source
 import com.databricks.sql.transaction.tahoe.DeltaLog
-
+import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetricsBase
+import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.types.StructType
 case class DeltaClusteringMetrics(deltaLog: DeltaLog, spark: SparkSession) extends DeltaClusteringMetricsBase(spark) {
 
   override def schema: StructType = deltaLog.snapshot.schema
@@ -27,6 +29,11 @@ object DeltaClusteringMetrics {
     DeltaClusteringMetrics(deltaLog, spark)
   }
 }
+
+
+
+
+
 
 
 
