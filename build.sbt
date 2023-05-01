@@ -20,4 +20,3 @@ libraryDependencies += "org.apache.spark" %% "spark-catalyst" % sparkVersion % T
 libraryDependencies += "org.apache.spark" %% "spark-core" % sparkVersion % Test classifier "tests"
 libraryDependencies += "org.apache.spark" %% "spark-sql" % sparkVersion % Test classifier "tests"
 libraryDependencies += "org.apache.spark" %% "spark-hive" % sparkVersion % Test classifier "tests"
-
