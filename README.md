@@ -3,7 +3,7 @@
 ## OVERVIEW
 ___ 
 Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership.  
-It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provides valuable insights about how well the data is clustered.  
+It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well the data is clustered.  
 This information helps users to identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which improve query performance and reduce storage costs.  
 Lighthouse supports Delta Lake, we plan to expand its capabilities to include other open lakehouse formats in the future.  
 
