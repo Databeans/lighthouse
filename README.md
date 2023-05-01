@@ -7,6 +7,26 @@ It is designed to monitor the health of the Lakehouse tables from a data layout 
 This information helps users to identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which improve query performance and reduce storage costs.  
 Lighthouse supports Delta Lake, we plan to expand its capabilities to include other open lakehouse formats in the future.  
 
+## BUILDING
+
+---
+Lighthouse is compiled using SBT.
+
+To compile, run
+``` 
+sbt compile
+``` 
+
+To generate artifacts, run
+``` 
+sbt package
+``` 
+
+To execute tests, run
+``` 
+sbt test
+``` 
+
 ## SETUP INSTRUCTIONS
 ___
 ### Prerequisites
