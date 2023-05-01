@@ -1,13 +1,16 @@
+#Docker image to build and run tests of the Scala project
 image: hseeberger/scala-sbt:8u302_1.5.5_2.13.6
 
 pipelines:
+
   default:
-     - step:
+    - step:
         name: Build and Test
         caches:
           - sbt
         script:
           - sbt clean compile test
+
   branches:
     master:
       - step:
@@ -18,3 +21,10 @@ pipelines:
                 echo "Direct merges to the master branch are not allowed. Please create a pull request instead."
                 exit 1
               fi
+
+  pull-requests:
+    '**':
+      - step:
+          name: Run tests for all pull requests
+          script:
+            - sbt clean compile test
