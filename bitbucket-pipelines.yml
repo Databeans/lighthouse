@@ -11,17 +11,6 @@ pipelines:
         script:
           - sbt clean compile test
 
-  branches:
-    master:
-      - step:
-          name: Prevent Direct Merge to Master
-          script:
-            - |
-              if [[ "$BITBUCKET_PR_DESTINATION_BRANCH" == "master" ]]; then
-                echo "Direct merges to the master branch are not allowed. Please create a pull request instead."
-                exit 1
-              fi
-
   pull-requests:
     '**':
       - step:
