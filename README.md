@@ -88,7 +88,7 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 3. Create a new cell in your notebook and insert ```%run <path/to/DeltaClusteringMetrics>```.
 
    **PS:**   Replace <path/to/your/DeltaClusteringMetrics> with the actual path to the DeltaClusteringMetrics notebook.  
-5. Run the cell.   
+4. Run the cell.   
 With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
 
 ## CLUSTERING METRICS
@@ -156,19 +156,21 @@ The library will then compute the clustering metrics and generate a dataframe co
 | col_name | 5                | 5                        | 3.0             | 4 .0                  | {5.0 -> 0, 10.0 -... |  
   
 
-#### - total_file_count:  
-Total number of files composing the Delta table.  
-#### - total_uniform_file_count:  
-Files in which min and max values of a given ordering column are equal  
-#### - average_overlap:  
+```total_file_count```  
+Total number of files composing the Delta table.
+
+```total_uniform_file_count```  
+Files in which min and max values of a given ordering column are equal
+
+```average_overlap```  
 Average number of overlapping files for each file in the delta table.  
 The higher the average_overlap, the worse the clustering.
 
-#### - average_overlap_depth:  
+```average_overlap_depth```  
 The average number of files that will be read when an overlap occurs.
 The higher the average_overlap_depth, the worse the clustering.
 
-#### - File_depth_histogram:
+```File_depth_histogram```  
 A histogram detailing the distribution of the overlap_depth on the table by grouping the tables’ files by their proportional overlap depth.  
    * 0 to 16 with increments of 1.  
    * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
