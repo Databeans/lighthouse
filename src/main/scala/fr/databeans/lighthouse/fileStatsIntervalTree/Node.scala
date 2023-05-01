@@ -1,4 +1,4 @@
-package databeans.fileStatsIntervalTree
+package fr.databeans.lighthouse.fileStatsIntervalTree
 
 import org.apache.spark.sql.types.{DecimalType, IntegerType, LongType}
 
@@ -6,11 +6,11 @@ import scala.collection.SortedMap
 import scala.collection.immutable.TreeSet
 import scala.collection.mutable.ListBuffer
 
-case class Node private(
-                         center: String,
-                         left: Option[Node],
-                         right: Option[Node],
-                         intervals: SortedMap[Interval, List[Interval]]) {
+case class Node(
+                 center: String,
+                 left: Option[Node],
+                 right: Option[Node],
+                 intervals: SortedMap[Interval, List[Interval]]) {
 
 
   def size: Int = intervals.size
@@ -45,7 +45,7 @@ case class Node private(
 
 object Node {
 
-  private def medianOf(set: TreeSet[_ >: Int with Long with BigDecimal with String]): Option[String] = {
+  def medianOf(set: TreeSet[_ >: Int with Long with BigDecimal with String]): Option[String] = {
     val mid = set.size / 2
 
     set.zipWithIndex.find(_._2 == mid) match {
@@ -96,7 +96,6 @@ object Node {
   def apply(intervals: Seq[Interval]): Node = {
 
     var intervalsMap = SortedMap.empty[Interval, List[Interval]]
-
     val median = getMedian(intervals).get
 
     var leftNodes = List.empty[Interval]
@@ -104,12 +103,9 @@ object Node {
 
     intervals.foreach { interval =>
       if (interval.lowerThenPoint(median)) leftNodes ::= interval
-
       else if (interval.greaterThenPoint(median)) rightNodes ::= interval
-
       else intervalsMap ++= Seq(interval -> (interval :: intervalsMap.getOrElse(interval, List.empty)))
     }
-
 
     if (leftNodes.nonEmpty && rightNodes.nonEmpty) {
       Node(median, Some(Node(leftNodes)), Some(Node(rightNodes)), intervalsMap)

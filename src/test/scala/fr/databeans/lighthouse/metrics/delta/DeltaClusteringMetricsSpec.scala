@@ -1,6 +1,6 @@
-package databeans.metrics.delta
+package fr.databeans.lighthouse.metrics.delta
 
-import databeans.metrics.Distribution
+import fr.databeans.lighthouse.metrics.Distribution
 import org.apache.spark.sql.{QueryTest, Row}
 import org.apache.spark.sql.delta.DeltaLog
 import org.apache.spark.sql.delta.test.DeltaExtendedSparkSession
@@ -172,7 +172,7 @@ class DeltaClusteringMetricsSpec extends QueryTest with SharedSparkSession with 
     }
   }
 
-  test("compute metrics for partitioned delta table") {
+  test("compute metrics for a partitioned delta table") {
     withTempDir { dir =>
       spark.range(1, 50, 1, 5).toDF()
         .withColumn("part", col("id") % 3)

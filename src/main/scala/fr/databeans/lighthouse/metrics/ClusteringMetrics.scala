@@ -1,7 +1,6 @@
-package databeans.metrics
+package fr.databeans.lighthouse.metrics
 
-import databeans.fileStatsIntervalTree
-import databeans.fileStatsIntervalTree.{Interval, IntervalBoundary}
+import fr.databeans.lighthouse.fileStatsIntervalTree.{Interval, IntervalBoundary, IntervalTree}
 
 case class ClusteringMetrics(
                               column: String,
@@ -12,13 +11,7 @@ case class ClusteringMetrics(
                               averageOverlaps: Double
                             )
 
-// TODO Add metrics for null intervals
-// TODO Add file size histogram too as a metric to watch.
-// TODO Add average file size metric, maybe min and max too?
-// TODO Add the total table size
-// TODO Add average files per partition and files number per partition histogram.
-// TODO <Advanced> find columns correlated to insertion time to avoid clustering on those columns.
-// TODO add skipping ratio as metric to watch.
+
 class ClusteringMetricsBuilder {
 
   def computeMetrics(column: String, intervals: Seq[Interval]): ClusteringMetrics = {
@@ -34,7 +27,7 @@ class ClusteringMetricsBuilder {
         .sorted
         .map(p => Interval(p.value, p.value, p.value, p.statsType))
 
-      val tree = fileStatsIntervalTree.IntervalTree(filteredIntervals)
+      val tree = IntervalTree(filteredIntervals)
       var depthPerSubInterval: Seq[(Interval, Int)] = Seq()
       var histogramInput: Seq[(Interval, Int)] = Seq()
       var i = 0
@@ -100,7 +93,7 @@ class ClusteringMetricsBuilder {
   }
 
   private def computeAverageOverlaps(intervals: Seq[Interval]): Double = {
-    val tree = fileStatsIntervalTree.IntervalTree(intervals)
+    val tree = IntervalTree(intervals)
     val intervalsOverlaps = intervals
       .map(i => tree.getIntervals(i).size - 1)
 
@@ -111,6 +104,3 @@ class ClusteringMetricsBuilder {
     intervals.count(i => i.start == i.end)
   }
 }
-
-
-

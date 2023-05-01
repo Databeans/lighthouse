@@ -1,4 +1,4 @@
-package databeans.metrics.delta
+package fr.databeans.lighthouse.metrics.delta
 
 import org.apache.spark.sql.delta.DeltaLog
 import org.apache.spark.sql.types.StructType

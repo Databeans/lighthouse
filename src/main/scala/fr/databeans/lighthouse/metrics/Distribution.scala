@@ -1,6 +1,4 @@
-package databeans.metrics
-
-import scala.collection.immutable.ListMap
+package fr.databeans.lighthouse.metrics
 
 object Distribution {
 
