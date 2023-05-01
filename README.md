@@ -37,7 +37,7 @@ clusteringMetrics.show()
 ```
 
 ### Using spark-submit
-Submit the application to the Spark cluster:
+Submit the application to a Spark cluster:
 ``` 
 spark-submit \
    --class com.example.MyApp \
