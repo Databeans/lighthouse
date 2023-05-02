@@ -21,17 +21,3 @@ jobs:
 
     - name: Run tests
       run: sbt test
-
-  # Will be deleted when organization account is upgraded to a GitHub Team or Enterprise account.
-  prevent-push:
-
-    runs-on: ubuntu-latest
-
-    steps:
-
-      - name: Check if push is allowed
-        run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            echo "Direct pushes to main are not allowed. Please open a pull request instead.";
-            exit 1;
-          fi
