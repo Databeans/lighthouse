@@ -31,7 +31,7 @@ jobs:
 
       - name: Check if push is allowed
         run: |
-          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          if [ "${{ github.ref }}" = "refs/heads/master" ] && [ "${{ github.event_name }}" = "push" ]; then
             echo "Direct pushes to main are not allowed. Please open a pull request instead.";
             exit 1;
           fi
