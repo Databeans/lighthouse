@@ -1,5 +1,5 @@
 name: Lighthouse Tests
-# triggers for the workflow
+
 on:
   [push, pull_request]
 
