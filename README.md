@@ -83,7 +83,7 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
 1. Add the Lighthouse_2.12-0.1.0.jar to your cluster.
-2. Download this [notebook](https://bitbucket.org/data_beans/lighthouse/src/user-guide/notebooks/databricks/DeltaClusteringMetrics.scala) and import it to your workspace.
+2. Download this [notebook](https://github.com/Databeans/lighthouse/blob/main/notebooks/databricks/DeltaClusteringMetrics.scala) and import it to your workspace.
 3. Create a new cell in your notebook and insert ```%run <path/to/DeltaClusteringMetrics>```.
 
    **PS:**   Replace <path/to/your/DeltaClusteringMetrics> with the actual path to the DeltaClusteringMetrics notebook.  
