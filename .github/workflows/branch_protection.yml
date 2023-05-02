@@ -1,20 +1,20 @@
 # Will be deleted after account upgrade to team ro Enterprise account.
 name: Branch Protection
 
-  on:
-    push:
-      branches:
-        - main
+on:
+  push:
+    branches:
+      - main
 
-  jobs:
-    branch-protection:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Enable branch protection
-          uses: peter-evans/branch-protection-action@v2
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            branch: main
-            enforce_admins: false
-            required_pull_request_reviews: true
-            required_status_checks: [Lighthouse Tests]
+jobs:
+  branch-protection:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable branch protection
+        uses: peter-evans/branch-protection-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          enforce_admins: false
+          required_pull_request_reviews: true
+          required_status_checks: [Lighthouse Tests]
