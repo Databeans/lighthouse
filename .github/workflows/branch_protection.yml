@@ -1,5 +1,5 @@
 # Will be deleted after account upgrade to team ro Enterprise account.
-nname: Branch Protection
+name: Branch Protection
 
   on:
     push:
