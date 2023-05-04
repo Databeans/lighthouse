@@ -5,8 +5,8 @@ This example calculates the clustering metrics of a delta table, and prints the 
 
 ## Prerequisites  
 - Scala 2.12.13
-- Spark 3.2.0
-- Delta 2.0.0  
+- Spark 3.3.2
+- Delta 2.3.0  
 - lighthouse_2.12-0.1.0.jar  
 
 ## Instructions  

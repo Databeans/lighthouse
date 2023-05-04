@@ -3,8 +3,8 @@ name := "clustering-metrics-example"
 version := "0.1"
 scalaVersion := "2.12.13"
 
-val sparkVersion = "3.2.0"
-val deltaVersion = "2.0.0"
+val sparkVersion = "3.3.2"
+val deltaVersion = "2.3.0"
 
 lazy val root = (project in file("."))
   .settings(
