@@ -29,8 +29,8 @@ sbt test
 ## SETUP INSTRUCTIONS
 
 ### Prerequisites
-- Apache Spark 3.2.0
-- Delta 2.0.0
+- Apache Spark 3.3.2
+- Delta 2.3.0
 - Lighthouse JAR file
 ### Using Spark Shell  
 1. Open the terminal and run the following command: 
@@ -189,8 +189,8 @@ A histogram detailing the distribution of the overlap_depth on the table by grou
  
 Lighthouse supports:  
 - Scala 2.12.13  
-- Spark 3.2.0  
-- Delta 2.0.0  
+- Spark 3.3.2  
+- Delta 2.3.0  
 
 ## CONTRIBUTING
  
