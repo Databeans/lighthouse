@@ -12,7 +12,7 @@ This example calculates the clustering metrics of a delta table, and prints the 
 ## Instructions  
 To run the example:  
 1. Download or clone the lighthouse project.   
-2. run ```sbt build``` then ```sbt compile```.  
+2. run ```sbt compile``` to compile.  
 3. run ```sbt package``` to generate the jar file.
 4. run ```mkdir examples/lib/ ``` to create the lib directory.  
 5. run ```cp target/scala-2.12/lighthouse_2.12-0.1.0.jar examples/lib/``` to copy the jar in the lib folder.  
