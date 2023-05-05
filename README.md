@@ -197,7 +197,7 @@ Lighthouse supports:
 
 Before applying a selective filter on the “ss_item_sk” column of the table, we want to gain visibility on our query's performance before even running it (cutback on compute costs and time).
 
- - let’s extract the clustering metrics for the ss_item_sk column:
+let’s extract the clustering metrics for the ss_item_sk column:
 <img src="https://miro.medium.com/v2/resize:fit:720/0*z6xIFpQK4NpWGNpt" alt="ss_item_sk clustering metrics"></img>
 
 - average_overlap = 255 (total_file_count — 1) ⇒ every file overlaps with all the other files of the table (worst case scenario).
@@ -207,6 +207,7 @@ Before applying a selective filter on the “ss_item_sk” column of the table, 
 
 &#8658;  It’s essential to recluster our data by Z-ordering the store_sales table by the “ss_item_sk” column before running the selective query.
 
+let’s Z-order the store_sales table by the ss_item_sk column
 <img src="https://miro.medium.com/v2/resize:fit:720/0*GV6tDhANiP7jNpkm" alt="Z-ordering by ss_item_sk column"></img>
 
 &rarr; The Z-order command resulted in:
@@ -214,7 +215,7 @@ Before applying a selective filter on the “ss_item_sk” column of the table, 
 - numFilesAdded: 1437 (total_file_count after Z-ordering)
 - numFilesRemoved: 256 (total_file_count before Z-ordering)
 
-&rarr; let’s extract the clustering metrics for the ss_item_sk column after Z-ordering:
+let’s extract the clustering metrics for the ss_item_sk column after Z-ordering:
 
 <img src="https://miro.medium.com/v2/resize:fit:720/0*6VIm2Qn9EwlMgvEc" alt="Z-ordering by ss_item_sk column"></img>
 
