@@ -191,6 +191,37 @@ Lighthouse supports:
 - Spark 3.3.2  
 - Delta 2.3.0  
 
+## LIGHTHOUSE use case
+
+- Moving forward, We are going to experiment with the store_sales table of the TPC-DS (size= 386 GB, total_file_count= 256).
+
+Before applying a selective filter on the “ss_item_sk” column of the table, we want to gain visibility on our query's performance before even running it (cutback on compute costs and time).
+
+ - let’s extract the clustering metrics for the ss_item_sk column:
+<img src="https://miro.medium.com/v2/resize:fit:720/0*z6xIFpQK4NpWGNpt" alt="ss_item_sk clustering metrics"></img>
+
+- average_overlap = 255 (total_file_count — 1) ⇒ every file overlaps with all the other files of the table (worst case scenario).
+- average_overlap_depth = 256 (total_file_count) ⇒ every time an overlap occurs, all the files of the table will be read (worst case scenario).
+
+&rarr; there is no ordering whatsoever on the column “ss_item_sk”.
+
+&#8658;  It’s essential to recluster our data by Z-ordering the store_sales table by the “ss_item_sk” column before running the selective query.
+
+<img src="https://miro.medium.com/v2/resize:fit:720/0*GV6tDhANiP7jNpkm" alt="Z-ordering by ss_item_sk column"></img>
+
+&rarr; The Z-order command resulted in:
+       
+- numFilesAdded: 1437 (total_file_count after Z-ordering)
+- numFilesRemoved: 256 (total_file_count before Z-ordering)
+
+&rarr; let’s extract the clustering metrics for the ss_item_sk column after Z-ordering:
+
+<img src="https://miro.medium.com/v2/resize:fit:720/0*6VIm2Qn9EwlMgvEc" alt="Z-ordering by ss_item_sk column"></img>
+
+&rarr; Both the average_overlap and the average_overlap_depth values dropped dramatically for the ss_item_sk column indicating that any future queries on this column would be performant .
+
+&#8658; These clustering metrics help track the clustering state of a delta table and its behavior in time in order to empower users to make well-informed decisions about how data is written on disk.
+
 ## CONTRIBUTING
  
 Lighthouse is an open-source project, and we welcome contributors from the community. If you have a new feature or improvement, feel free to submit a pull request.  
