@@ -198,6 +198,7 @@ Lighthouse supports:
 Our objective is to gain visibility on our query's performance ( applying a selective filter on the “ss_item_sk” column of the table ) prior to execution.
 
 let’s extract the clustering metrics for the ss_item_sk column:
+
 <img src="https://miro.medium.com/v2/resize:fit:720/0*z6xIFpQK4NpWGNpt" alt="ss_item_sk clustering metrics"></img>
 
 - average_overlap = 255 (total_file_count — 1) ⇒ every file overlaps with all the other files of the table (worst case scenario).
@@ -206,11 +207,13 @@ let’s extract the clustering metrics for the ss_item_sk column:
 &rarr; there is no ordering whatsoever on the column “ss_item_sk”.
 
 So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, The query took 33.86 seconds.
+
 <img src="https://miro.medium.com/v2/resize:fit:720/0*oOgwDQcS7bDKLTp3" alt="Z-ordering by ss_item_sk column">
 
 &#8658;  It’s essential to recluster our data by Z-ordering the store_sales table by the “ss_item_sk” column before running the selective query.
 
 let’s Z-order the store_sales table by the ss_item_sk column
+
 <img src="https://miro.medium.com/v2/resize:fit:720/0*GV6tDhANiP7jNpkm" alt="Z-ordering by ss_item_sk column"></img>
 
 &rarr; The Z-order command resulted in:
@@ -219,11 +222,13 @@ let’s Z-order the store_sales table by the ss_item_sk column
 - numFilesRemoved: 256 (total_file_count before Z-ordering)
 
 Next, we are going to extract the clustering metrics for the ss_item_sk column after Z-ordering:
+
 <img src="https://miro.medium.com/v2/resize:fit:720/0*6VIm2Qn9EwlMgvEc" alt="Z-ordering by ss_item_sk column"></img>
 
 &rarr; Both the average_overlap and the average_overlap_depth values dropped dramatically for the ss_item_sk column indicating that any future queries on this column would be performant .
 
 So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, the query only took 3.90 seconds (almost 9X faster than the query on the same column before Z-ordering).
+
 <img src="https://miro.medium.com/v2/resize:fit:720/0*1HMiNUDCfLLOh15A" alt="Z-ordering by ss_item_sk column"></img>
 
 
