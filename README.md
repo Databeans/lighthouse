@@ -195,7 +195,7 @@ Lighthouse supports:
 
 - Moving forward, We are going to experiment with the store_sales table of the TPC-DS (size= 386 GB, total_file_count= 256).
 
-Before applying a selective filter on the “ss_item_sk” column of the table, we want to gain visibility on our query's performance before even running it (cutback on compute costs and time).
+Our objective is to gain visibility on our query's performance ( applying a selective filter on the “ss_item_sk” column of the table ) prior to execution.
 
 let’s extract the clustering metrics for the ss_item_sk column:
 <img src="https://miro.medium.com/v2/resize:fit:720/0*z6xIFpQK4NpWGNpt" alt="ss_item_sk clustering metrics"></img>
@@ -204,6 +204,9 @@ let’s extract the clustering metrics for the ss_item_sk column:
 - average_overlap_depth = 256 (total_file_count) ⇒ every time an overlap occurs, all the files of the table will be read (worst case scenario).
 
 &rarr; there is no ordering whatsoever on the column “ss_item_sk”.
+
+So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, The query took 33.86 seconds.
+<img src="https://miro.medium.com/v2/resize:fit:720/0*oOgwDQcS7bDKLTp3" alt="Z-ordering by ss_item_sk column">
 
 &#8658;  It’s essential to recluster our data by Z-ordering the store_sales table by the “ss_item_sk” column before running the selective query.
 
@@ -215,13 +218,16 @@ let’s Z-order the store_sales table by the ss_item_sk column
 - numFilesAdded: 1437 (total_file_count after Z-ordering)
 - numFilesRemoved: 256 (total_file_count before Z-ordering)
 
-let’s extract the clustering metrics for the ss_item_sk column after Z-ordering:
-
+Next, we are going to extract the clustering metrics for the ss_item_sk column after Z-ordering:
 <img src="https://miro.medium.com/v2/resize:fit:720/0*6VIm2Qn9EwlMgvEc" alt="Z-ordering by ss_item_sk column"></img>
 
 &rarr; Both the average_overlap and the average_overlap_depth values dropped dramatically for the ss_item_sk column indicating that any future queries on this column would be performant .
 
-&#8658; These clustering metrics help track the clustering state of a delta table and its behavior in time in order to empower users to make well-informed decisions about how data is written on disk.
+So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, the query only took 3.90 seconds (almost 9X faster than the query on the same column before Z-ordering).
+<img src="https://miro.medium.com/v2/resize:fit:720/0*1HMiNUDCfLLOh15A" alt="Z-ordering by ss_item_sk column"></img>
+
+
+&#8658; These clustering metrics help track the clustering state of a delta table and its behavior in time in order to empower users to make well-informed decisions about how to manage their data on disk.
 
 ## CONTRIBUTING
  
