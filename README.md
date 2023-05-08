@@ -17,7 +17,7 @@ The library can assist in addressing the following questions:
 
 &rarr; By carefully selecting the optimal time for data layout optimization, you can **maximize the benefits of this costly operation and minimize the number of times you need to repeat it in the future**.
 
-Lighthouse supports Delta Lake, we plan to expand its capabilities to include other open lakehouse formats in the future.  
+Currently, Lighthouse supports Delta Lake. We plan to expand its capabilities to include other open lakehouse formats in the future.  
 
 ## BUILDING
 
