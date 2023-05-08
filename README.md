@@ -204,7 +204,7 @@ let’s start by extracting the clustering metrics for the ss_item_sk column:
 
 &rarr; Given the extracted KPIs, there is no ordering whatsoever on the column “ss_item_sk”.
 
-&#8658; Prior to execution, we forecast that our query's performance would be at its lowest.
+&#8658; Prior to execution, we forecast that our query's performance would be at its worst.
 
 So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, The query took 33.86 seconds.
 
