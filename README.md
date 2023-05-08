@@ -7,7 +7,7 @@ Lighthouse is a library developed by DataBeans to optimize Lakehouse performance
 The library can assist in addressing the following questions:
 - is your data layout initially optimized? 
 
-&rarr; identification of potential issues in queries performance before executing the query itself: **effectively eliminates the cost associated with running a problematic query**.
+&rarr; identification of potential issues in queries performance before executing the query itself **effectively eliminates the cost associated with running a problematic query**.
 
 - if not, is it advisable to optimize?
 
