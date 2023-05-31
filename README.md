@@ -94,13 +94,18 @@ spark-submit
 target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
-1. Add the Lighthouse_2.12-0.1.0.jar to your cluster.
+1. Install our Maven library to your cluster:
+
+Go to `compute` > `cluster` > `Libraries` > `Install New` > Set `Source` = **Maven** | `coordinates` = **io.github.Databeans:lighthouse_2.12:0.1.0**
+   
+   (Or Add the Lighthouse_2.12-0.1.0.jar to your cluster)
 2. Download this [notebook](https://github.com/Databeans/lighthouse/blob/main/notebooks/databricks/DeltaClusteringMetrics.scala) and import it to your workspace.
 3. Create a new cell in your notebook and insert ```%run <path/to/DeltaClusteringMetrics>```.
 
    **PS:**   Replace <path/to/your/DeltaClusteringMetrics> with the actual path to the DeltaClusteringMetrics notebook.  
 4. Run the cell.   
-With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
+
+With these steps completed, you'll be able to use the DeltaClusteringMetrics library.  
 
 ## CLUSTERING METRICS
 
