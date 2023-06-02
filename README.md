@@ -43,15 +43,16 @@ sbt test
 ### Prerequisites
 - Apache Spark 3.3.2
 - Delta 2.3.0
-- Lighthouse JAR file
+
 ### Using Spark Shell  
 1. Open the terminal and run the following command: 
 ``` 
-spark-shell --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
+spark-shell 
+--packages io.delta:delta-core_2.12:2.3.0,io.github.Databeans:lighthouse_2.12:0.1.0 
+--conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
 --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
---jars </path/to/Lighthouse_2.12-0.1.0.jar> 
 ```  
-**PS:**   Replace </path/to/lighthouse_2.12-0.1.0.jar> with the actual path to the Lighthouse_2.12-0.1.0 jar file  
+
 2. Import the DeltaClusteringMetrics class :
 ```
 import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetrics
@@ -73,24 +74,21 @@ Submit the application to a Spark cluster:
 spark-submit \
    --class com.example.MyApp \
    --master <master-url> \
-   --packages io.delta:delta-core_2.12:2.0.0 \
-   --jars /path/to/Lighthouse_2.12-0.1.0.jar \
+   --packages io.delta:delta-core_2.12:2.0.0,io.github.Databeans:lighthouse_2.12:0.1.0 \
    </path/to/your/spark/application.jar>
 ```
 This command specifies the following options:  
 - --class: Name of the main class of your application.  
 - --master: URL of the Spark cluster to use.  
-- --packages: Maven coordinates of the Delta Lake library to use.  
-- --jars: Path to the Lighthouse_2.12-0.1.0.jar file.  
-- The path to your application's JAR file.  
+- --packages: Maven coordinates of the Delta Lake library to use, Maven coordinates of the lighthouse library to use.
+- The path to your application's JAR file.
 
 Example:
 ```  
-spark-submit
+spark-submit 
 --class Quickstart 
 --master local[*] 
---packages io.delta:delta-core_2.12:2.0.0 
---jars lib/Lighthouse_2.12-0.1.0.jar 
+--packages io.delta:delta-core_2.12:2.0.0,io.github.Databeans:lighthouse_2.12:0.1.0 
 target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
@@ -99,6 +97,7 @@ target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 Go to `compute` > `cluster` > `Libraries` > `Install New` > Set `Source` = **Maven** | `coordinates` = **io.github.Databeans:lighthouse_2.12:0.1.0**
    
    (Or Add the Lighthouse_2.12-0.1.0.jar to your cluster)
+   
 2. Download this [notebook](https://github.com/Databeans/lighthouse/blob/main/notebooks/databricks/DeltaClusteringMetrics.scala) and import it to your workspace.
 3. Create a new cell in your notebook and insert ```%run <path/to/DeltaClusteringMetrics>```.
 
