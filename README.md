@@ -2,23 +2,14 @@
 
 ## OVERVIEW
  
-Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership. It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well data is clustered. This information helps users identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which improve query performance and reduce storage costs.  
+Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership. It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well data is clustered. This information helps users identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which improves query performance and reduce storage costs.  
 
-The library can assist in addressing the following questions:
-- is your data layout initially optimized? 
-
-&rarr; identification of potential issues in queries performance before executing the query itself **effectively eliminates the cost associated with running a problematic query**.
-
-- if not, is it advisable to optimize?
-
-&rarr; Optimizing your data by default can be premature and may not yield the most significant improvements, especially **considering the substantial costs associated with optimization operations**.
-
-- when to optimize your data again and again as the clustering state progressively worsens with each insert, delete, and update ? 
-
-&rarr; By carefully selecting the optimal time for data layout optimization, you can **maximize the benefits of this costly operation and minimize the number of times you need to repeat it in the future**.
-
-Currently, Lighthouse supports Delta Lake. We plan to expand its capabilities to include other open lakehouse formats in the future.  
-
+The Lighhouse library can assist in addressing the following questions:
+ * How well is my data clustered on disk?
+ * Does my data layout favor skipping based on statistics?
+ * Am I suffering from the many small files problem?
+ * How frequently should I re-cluster my data to maintain its optimal clustering state?
+ 
 ## BUILDING
 
 Lighthouse is compiled using SBT.
@@ -189,60 +180,6 @@ The higher the average_overlap_depth, the worse the clustering.
 A histogram detailing the distribution of the overlap_depth on the table by grouping the tables’ files by their proportional overlap depth.  
    * 0 to 16 with increments of 1.  
    * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
-
-## LIGHTHOUSE use-case
-
-Moving forward, We are going to experiment with the store_sales table of the TPC-DS (size= 386 GB, total_file_count= 256).
-Assuming that the "ss_item_sk" column is the most frequently queried column in the table, our goal is to predict the performance of queries involving this column and assess whether executing maintenance operations before running the query would be beneficial.
-### Objectives: 
-- Gain visibility on our query's performance prior to its execution.
-- Examine the impact of the Z-ordering operation on our data on disk.
-- Compare the predicted behavior indicated by the extracted clustering metrics with the outcomes of the executed queries.
-### Usage: 
-let’s start by extracting the clustering metrics for the ss_item_sk column:
-
-<p align="center"><img src="https://miro.medium.com/v2/resize:fit:720/0*z6xIFpQK4NpWGNpt" alt="ss_item_sk clustering metrics"/></p>
-
-- average_overlap = 255 (total_file_count — 1) ⇒ every file overlaps with all the other files of the table (worst case scenario).
-- average_overlap_depth = 256 (total_file_count) ⇒ every time an overlap occurs, all the files of the table will be read (worst case scenario).
-
-&rarr; Given the extracted KPIs, there is no ordering whatsoever on the column “ss_item_sk”.
-
-&#8658; Prior to execution, we forecast that our query's performance would be at its worst.
-
-So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, The query took 33.86 seconds.
-
-<img src="https://miro.medium.com/v2/resize:fit:720/0*oOgwDQcS7bDKLTp3" alt="Z-ordering by ss_item_sk column">
-
-&#8658;  Next, we're going to recluster our data by Z-ordering the store_sales table by the “ss_item_sk” column before running the selective query with the intentions of:
-
-- comparing query performance pre and post Z-ordering 
-- Examining the impact of the Z-ordering operation on our extracted metrics
-
-let’s Z-order the store_sales table by the ss_item_sk column
-
-<img src="https://miro.medium.com/v2/resize:fit:720/0*GV6tDhANiP7jNpkm" alt="Z-ordering by ss_item_sk column"></img>
-
-&rarr; The Z-order command resulted in:
-       
-- numFilesAdded: 1437 (total_file_count after Z-ordering)
-- numFilesRemoved: 256 (total_file_count before Z-ordering)
-
-As planned, Let's extract the clustering metrics for the ss_item_sk column after Z-ordering:
-
-<img src="https://miro.medium.com/v2/resize:fit:720/0*6VIm2Qn9EwlMgvEc" alt="Z-ordering by ss_item_sk column"></img>
-
-&rarr; Both the average_overlap and the average_overlap_depth values dropped dramatically for the ss_item_sk column indicating that any future queries on this column would be performant .
-
-&#8658; The data layout of our table has been positively affected by the Z-order operation.
-
-So, when querying the store_sales table by applying a selective filter on the “ss_item_sk” column, the query only took 3.90 seconds (almost 9X faster than the query on the same column before Z-ordering).
-
-<img src="https://miro.medium.com/v2/resize:fit:720/0*1HMiNUDCfLLOh15A" alt="Z-ordering by ss_item_sk column"></img>
-
-&rarr; Significant query performance improvement as indicated previously with the extracted clustering metrics.
-
-&#8658; These clustering metrics help track the clustering state of a delta table and its behavior in time in order to empower users to make well-informed decisions about how to manage their data on disk.
 
 ## NOTES
  
