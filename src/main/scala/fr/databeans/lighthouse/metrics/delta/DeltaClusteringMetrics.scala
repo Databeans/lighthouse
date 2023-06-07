@@ -7,15 +7,15 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 
 case class DeltaClusteringMetrics(deltaLog: DeltaLog, spark: SparkSession) extends DeltaClusteringMetricsBase(spark) {
 
-  override def schema: StructType = deltaLog.snapshot.schema
+  override def schema: StructType = deltaLog.unsafeVolatileSnapshot.schema
 
-  override def statsSchema: StructType = deltaLog.snapshot.statsSchema
+  override def statsSchema: StructType = deltaLog.unsafeVolatileSnapshot.statsSchema
 
-  override def stateWithStats: DataFrame = deltaLog.snapshot.stateDF
+  override def stateWithStats: DataFrame = deltaLog.unsafeVolatileSnapshot.stateDF
 
-  override def allColumns: Seq[String] = deltaLog.snapshot.schema.map(_.name)
+  override def allColumns: Seq[String] = deltaLog.unsafeVolatileSnapshot.schema.map(_.name)
 
-  override def partitionColumns: Seq[String] = deltaLog.snapshot.metadata.partitionColumns
+  override def partitionColumns: Seq[String] = deltaLog.unsafeVolatileSnapshot.metadata.partitionColumns
 }
 
 object DeltaClusteringMetrics {
