@@ -81,7 +81,7 @@ spark-submit
 --class Quickstart 
 --master local[*] 
 --packages io.delta:delta-core_2.12:2.3.0,io.github.Databeans:lighthouse_2.12:0.1.0 
-target/scala-2.12/clustering-metrics-example_2.12-0.1.jarsbt 
+target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
 1. Install our Maven library to your cluster:
