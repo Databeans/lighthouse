@@ -182,6 +182,15 @@ A histogram detailing the distribution of the overlap_depth on the table by grou
    * 0 to 16 with increments of 1.  
    * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
 
+### Use-case:
+
+To gain a comprehensive understanding of the library in action, including:
+ * how to utilize the lighthouse library for metric extraction
+ * how to interpret the extracted metrics for performing maintenance operations on your data layout
+
+We, Databeans, recommend reading the following blog post:
+- [Z-ordering: take the Guesswork out (part2)](https://databeans-blogs.medium.com/delta-z-ordering-take-the-guesswork-out-part2-1bdd03121aec)
+ 
 ## NOTES
  
 - Lighthouse cannot compute metrics for a column without statistics: Before computing clustering metrics, Lighthouse requires the statistics of the columns to be computed, so if statistics are not available, it will not be able to compute metrics for that column.  
