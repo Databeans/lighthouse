@@ -2,10 +2,15 @@
 
 ## OVERVIEW
  
-Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership. It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well the data is clustered.  
-This information helps users to identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which improve query performance and reduce storage costs.  
-Lighthouse supports Delta Lake, we plan to expand its capabilities to include other open lakehouse formats in the future.  
+Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership. It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well data is clustered. This information helps users identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which engenders **improvements in query performance** and **reduction in storage costs**.  
 
+The Lighthouse library can assist in addressing the following questions:
+ * How well is my data clustered?
+ * Does my data layout favor skipping based on statistics?
+ * Is it advisable to Z-order before running a query on a certain column?
+ * Is my data suffering from the many small files problem?
+ * How frequently should I re-cluster my data to maintain its optimal clustering state?
+ 
 ## BUILDING
 
 Lighthouse is compiled using SBT.
@@ -30,15 +35,16 @@ sbt test
 ### Prerequisites
 - Apache Spark 3.3.2
 - Delta 2.3.0
-- Lighthouse JAR file
+
 ### Using Spark Shell  
 1. Open the terminal and run the following command: 
 ``` 
-spark-shell --packages io.delta:delta-core_2.12:2.0.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
+spark-shell 
+--packages io.delta:delta-core_2.12:2.3.0,io.github.Databeans:lighthouse_2.12:0.1.0 
+--conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" 
 --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
---jars </path/to/Lighthouse_2.12-0.1.0.jar> 
 ```  
-**PS:**   Replace </path/to/lighthouse_2.12-0.1.0.jar> with the actual path to the Lighthouse_2.12-0.1.0 jar file  
+
 2. Import the DeltaClusteringMetrics class :
 ```
 import fr.databeans.lighthouse.metrics.delta.DeltaClusteringMetrics
@@ -60,34 +66,37 @@ Submit the application to a Spark cluster:
 spark-submit \
    --class com.example.MyApp \
    --master <master-url> \
-   --packages io.delta:delta-core_2.12:2.0.0 \
-   --jars /path/to/Lighthouse_2.12-0.1.0.jar \
+   --packages io.delta:delta-core_2.12:2.3.0,io.github.Databeans:lighthouse_2.12:0.1.0 \
    </path/to/your/spark/application.jar>
 ```
 This command specifies the following options:  
 - --class: Name of the main class of your application.  
 - --master: URL of the Spark cluster to use.  
-- --packages: Maven coordinates of the Delta Lake library to use.  
-- --jars: Path to the Lighthouse_2.12-0.1.0.jar file.  
-- The path to your application's JAR file.  
+- --packages: Maven coordinates of the Delta Lake library to use, Maven coordinates of the lighthouse library to use.
+- The path to your application's JAR file.
 
 Example:
 ```  
-spark-submit
+spark-submit 
 --class Quickstart 
 --master local[*] 
---packages io.delta:delta-core_2.12:2.0.0 
---jars lib/Lighthouse_2.12-0.1.0.jar 
+--packages io.delta:delta-core_2.12:2.3.0,io.github.Databeans:lighthouse_2.12:0.1.0 
 target/scala-2.12/clustering-metrics-example_2.12-0.1.jar
 ```  
 ### Using DATABRICKS  
-1. Add the Lighthouse_2.12-0.1.0.jar to your cluster.
+1. Install our Maven library to your cluster:
+
+Go to `compute` > `cluster` > `Libraries` > `Install New` > Set `Source` = **Maven** | `coordinates` = **io.github.Databeans:lighthouse_2.12:0.1.0**
+   
+   (Or Add the Lighthouse_2.12-0.1.0.jar to your cluster)
+   
 2. Download this [notebook](https://github.com/Databeans/lighthouse/blob/main/notebooks/databricks/DeltaClusteringMetrics.scala) and import it to your workspace.
 3. Create a new cell in your notebook and insert ```%run <path/to/DeltaClusteringMetrics>```.
 
    **PS:**   Replace <path/to/your/DeltaClusteringMetrics> with the actual path to the DeltaClusteringMetrics notebook.  
 4. Run the cell.   
-With these steps completed, you should be able to use the DeltaClusteringMetrics library.  
+
+With these steps completed, you'll be able to use the DeltaClusteringMetrics library.  
 
 ## CLUSTERING METRICS
 
@@ -173,6 +182,15 @@ A histogram detailing the distribution of the overlap_depth on the table by grou
    * 0 to 16 with increments of 1.  
    * For buckets larger than 16, increments of twice the width of the previous bucket (e.g. 32, 64, 128, …)  
 
+### Use-case:
+
+To gain a comprehensive understanding of the library in action, including:
+ * how to utilize the lighthouse library for metric extraction
+ * how to interpret the extracted metrics for performing maintenance operations on your data layout
+
+We, Databeans, recommend reading the following blog post:
+- [Z-ordering: take the Guesswork out (part2)](https://databeans-blogs.medium.com/delta-z-ordering-take-the-guesswork-out-part2-1bdd03121aec)
+ 
 ## NOTES
  
 - Lighthouse cannot compute metrics for a column without statistics: Before computing clustering metrics, Lighthouse requires the statistics of the columns to be computed, so if statistics are not available, it will not be able to compute metrics for that column.  
