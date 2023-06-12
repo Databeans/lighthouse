@@ -4,7 +4,7 @@
  
 Lighthouse is a library developed by DataBeans to optimize Lakehouse performance and reduce its total cost ownership. It is designed to monitor the health of the Lakehouse tables from a data layout perspective and provide valuable insights about how well data is clustered. This information helps users identify when data maintenance operations (vacuum, compaction, clustering …) should be performed, which engenders **improvements in query performance** and **reduction in storage costs**.  
 
-The Ligthhouse library can assist in addressing the following questions:
+The Lighthouse library can assist in addressing the following questions:
  * How well is my data clustered?
  * Does my data layout favor skipping based on statistics?
  * Is it advisable to Z-order before running a query on a certain column?
