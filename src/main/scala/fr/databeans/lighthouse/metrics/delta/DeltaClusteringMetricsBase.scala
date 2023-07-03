@@ -100,6 +100,7 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
 
   private def getNamesOfColumnsWithoutStats: Seq[String] ={
     var columnsWithoutStats: Seq[String] = Seq.empty[String]
+
     allColumns.foreach(col =>
       if (!checkIfStatsExists(col)){
         columnsWithoutStats = columnsWithoutStats :+ col
