@@ -36,12 +36,9 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
 
   def computeForAllColumns(): DataFrame = {
     import spark.implicits._
-    if (checkIfStatsExistForAllColumnsOfTable()){
-      allColumns.diff(partitionColumns).map(col => compute(col)).toDF()
-    } else{
-      val colsWithoutStats = getNamesOfColumnsWithoutStats
-      allColumns.diff(partitionColumns).diff(colsWithoutStats).map(col => compute(col)).toDF()
-    }
+    val colsWithoutStats = getColumnsWithoutStats()
+    val omittedCols = partitionColumns.union(colsWithoutStats)
+    allColumns.diff(omittedCols).map(col => compute(col)).toDF()
   }
 
   private def compute(column: String): ClusteringMetrics = {
@@ -89,18 +86,9 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
       .contains(column)
   }
 
-  private def checkIfStatsExistForAllColumnsOfTable(): Boolean ={
-    val statsExistenceInColumns = allColumns.map(col => checkIfStatsExists(col))
-    if (statsExistenceInColumns.contains(false)){
-      false
-    } else {
-      true
-    }
-  }
 
-  private def getNamesOfColumnsWithoutStats: Seq[String] ={
+  private def getColumnsWithoutStats(): Seq[String] ={
     var columnsWithoutStats: Seq[String] = Seq.empty[String]
-
     allColumns.foreach(col =>
       if (!checkIfStatsExists(col)){
         columnsWithoutStats = columnsWithoutStats :+ col
