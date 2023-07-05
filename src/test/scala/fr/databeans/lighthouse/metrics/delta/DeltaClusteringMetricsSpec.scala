@@ -222,5 +222,29 @@ class DeltaClusteringMetricsSpec extends QueryTest with SharedSparkSession with 
       checkAnswer(value3Metrics, Seq(Row("value_3", 5L, 5L, -1, null.asInstanceOf[Map[Double, Int]], -1)))
     }
   }
+
+  test("compute metrics for allColumns of a table where statistics does not exist for certain columns") {
+    withTempDir { dir =>
+      val data = spark.range(1, 50, 1, 5).toDF()
+        .withColumn("value", col("id") * 3)
+
+      data
+        .filter("1 > 2")
+        .write.mode("append")
+        .format("delta").save(dir.toString)
+
+      spark.sql(s"ALTER TABLE delta.`${dir.toString}` SET TBLPROPERTIES ('delta.dataSkippingNumIndexedCols' = '1')")
+
+      data
+        .write.mode("append")
+        .format("delta").save(dir.toString)
+
+      val deltaClusteringMetric = DeltaClusteringMetrics.forPath(dir.toString, spark)
+      // computeForAllColumns should compute metrics only for columns with statistics.
+      val metrics = deltaClusteringMetric.computeForAllColumns()
+      checkAnswer(metrics, Seq(Row("id", 5L, 0L, 1.0, buildHistogram(16, Map((1.0, 5))), 0.0)))
+    }
+  }
+
 }
 
