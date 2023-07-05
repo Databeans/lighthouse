@@ -88,13 +88,7 @@ abstract class DeltaClusteringMetricsBase(spark: SparkSession) extends Clusterin
 
 
   private def getColumnsWithoutStats(): Seq[String] ={
-    var columnsWithoutStats: Seq[String] = Seq.empty[String]
-    allColumns.foreach(col =>
-      if (!checkIfStatsExists(col)){
-        columnsWithoutStats = columnsWithoutStats :+ col
-      }
-    )
-    columnsWithoutStats
+    allColumns.filter(col => !checkIfStatsExists(col))
   }
 
   private def isPartitioningColumn(column: String): Boolean = {
